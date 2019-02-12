@@ -1,0 +1,31 @@
+.jumbotron {
+  margin-top: 2%;
+}
+.card-header {
+  height: 90px;
+  transition: .3s ease-in-out;
+}
+
+.card-body > .card-text {
+  height: 140px;
+  transition: .3s ease-in-out;
+}
+
+.card-footer p {
+  margin-bottom: 3px;
+  color: #000;
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.log-bg {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 56px);
+  background: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') no-repeat 70% center/cover;
+}
