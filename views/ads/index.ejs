@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="container-fluid">
+
+  <div class="jumbotron">
+    <h1 class="display-3">bgyapro .online</h1>
+    <p class="lead">Ingyenes apróhirdetés Balassagyarmat térségében. Hirdess ingyen, kötelezettségek nélkül.</p>
+    <hr class="my-4">
+    <p>Keresel, vagy kínálsz? Villámgyors, ingyenes hirdetésfeladás. Itt találkozik a kereslet a kínálattal.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Segítség</a>
+    </p>
+  </div>
+
+  <div class="row">
+
+    <% ads.forEach(function(ad) { %>
+      <div class="col-xl-3 col-lg-4 col-sm-6">
+      <div class="card mb-3">
+        <div class="card-body text-light <%= ad.mainCategory === 'keres' ? 'bg-dark' : 'bg-primary' %>">
+          <h5 class="card-title font-weight-bold"><%= ad.title %></h5>
+          <p class="card-text"><%= ad.description %></p>
+          <span class="badge badge-light"># <%= ad.city %></span>
+          <span class="badge badge-light"># <%= ad.category %></span>
+        </div>
+        <div class="card-footer bg-secondary">
+          <div class="row">
+            <div class="col-6">
+              <p><%= moment(ad.createdAt).format('YYYY.MM.D.') %></p>
+              <p><i class="fas fa-money-bill-alt"></i> <%= ad.price === '' ? 'Nincs ár' : ad.price %></p>
+            </div>
+            <div class="col-6">
+              <a class="btn btn btn-dark mt-2" href="/ads/<%= ad._id %>">MEGNÉZEM</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+
+  </div>
+
+</div>
+
+<% include ../partials/footer %>

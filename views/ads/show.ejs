@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="container">
+
+  <hr class="my-4">
+  <h1 class="text-center"><%= ad.title %></h1>
+  <h4 class="text-center"><b>Maja0426</b> hirdetése</h4>
+  <hr class="my-4">
+
+
+  <div class="row">
+    <div class="col-sm-6 show-img">
+      <img src="<%= ad.image === '' ? 'https://ssihplc.com/wp-content/uploads/no-image.png' : ad.image %>" class="img-fluid rounded" alt="users picture">
+    </div>
+    <div class="col-sm-6 mx-auto">
+      <p class="lead my-3"><%= ad.description %></p>
+      <ul class="list-group list-group-flush mb-5">
+        <li class="list-group-item lead">Tel.: <a class="float-right" href="tel:+36705301130"><%= ad.phone %></a></li>
+        <li class="list-group-item lead">Település: <span class="float-right"><%= ad.city %></span></li>
+        <li class="list-group-item lead">Ár: <span class="float-right"><%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
+        <li class="list-group-item lead">Feladás ideje: <span class="float-right"><%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
+      </ul>
+<a href="/ads" class="btn btn-lg btn-block text-center btn-outline-dark">Vissza</a>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,98 @@
+<% include ../partials/header %>
+
+<div class="container-fluid text-center log-bg">
+  <div class="wrapper">
+    <form action="/ads" method="POST">
+
+      <div class="form-row mt-ads">
+        <div class="form-group mx-auto">
+          <select class="custom-select" name="ads[mainCategory]">
+            <option value="keres" selected>Keres</option>
+            <option value="kínál">Kínál</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group mx-auto">
+          <input class="form-control" type="text" name="ads[title]" placeholder="hirdetés címe" maxlength="75" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group mx-auto">
+          <input class="form-control" type="number" name="ads[price]" placeholder="ár" min="1">
+        </div>
+      </div>
+
+      <div class="form-row"> 
+        <div class="form-group mx-auto">
+          <input class="form-control" type="text" name="ads[city]" placeholder="település">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group mx-auto">
+          <input class="form-control" type="text" name="ads[phone]" placeholder="telefonszám">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12 text-center">
+          <h5>Kategória:</h5>
+          <div class="radios">
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio1" value="állás"
+                required>
+              <label class="custom-control-label" for="inlineRadio1">Állás</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio2" value="Ingatlan">
+              <label class="custom-control-label" for="inlineRadio2">Ingatlan</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio3" value="Szolgáltatás">
+              <label class="custom-control-label" for="inlineRadio3">Szolgáltatás</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio4" value="Műszaki cikk">
+              <label class="custom-control-label" for="inlineRadio4">Műszaki cikk</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio5" value="Képzés">
+              <label class="custom-control-label" for="inlineRadio5">Képzés</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio6" value="Egyéb">
+              <label class="custom-control-label" for="inlineRadio6">Egyéb</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="form-row">
+  <div class="form-group mx-auto">
+    <input class="form-control" type="text" name="ads[image]" placeholder="kép url">
+  </div>
+</div>
+
+      <div class="form-row">
+        <textarea rows="5" class="form-control" placeholder="Hirdetés szövege, max 500 karakter" name="ads[description]"
+          maxlength="500" required></textarea>
+      </div>
+      <button class="btn btn-primary my-2">Hirdetés feladása</button>
+      <a class="btn btn-md btn-dark" href="/ads">Vissza</a>
+    </form>
+  </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+  crossorigin="anonymous"></script>
+</body>
+</header>
