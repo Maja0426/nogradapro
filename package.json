@@ -4,7 +4,7 @@
   "description": "Ingyenes aprohirdetes oldal",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "Majoros Tamás",
   "license": "MIT",
