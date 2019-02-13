@@ -13,13 +13,9 @@ body {
   background: url('http://images6.fanpop.com/image/photos/39500000/41703-rick-and-morty-mr-meeseeks-wallpaper-rick-and-morty-39567951-1595-896.jpg') no-repeat 75% center/cover;
 }
 
-/* .card:hover {
-  cursor: pointer;
-} */
-
-.card {
+/* .card {
   box-shadow: 5px 5px 5px #555;
-}
+} */
 
 .card-body {
   height: 300px;
