@@ -20,7 +20,13 @@
         <li class="list-group-item lead">Ár: <span class="float-right"><%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
         <li class="list-group-item lead">Feladás ideje: <span class="float-right"><%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
       </ul>
-<a href="/ads" class="btn btn-lg btn-block text-center btn-outline-dark">Vissza</a>
+      <div class="btn-wrapper col-12 mx-auto text-center">
+        <a href="/ads/<%= ad._id %>/edit" class="btn btn-dark">Szerkeszt</a>
+        <a href="/ads" class="btn btn-secondary">Vissza</a>
+<form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
+<button class="btn btn-danger my-2">Törlés</button>
+</form>
+      </div>
     </div>
   </div>
 </div>

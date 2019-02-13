@@ -17,6 +17,10 @@ body {
   cursor: pointer;
 } */
 
+.card {
+  box-shadow: 5px 5px 5px #555;
+}
+
 .card-body {
   height: 300px;
   transition: .3s ease-in-out;
@@ -36,7 +40,7 @@ body {
 }
 
 .mt-ads {
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .log-bg {

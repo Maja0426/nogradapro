@@ -17,9 +17,10 @@
     <% ads.forEach(function(ad) { %>
       <div class="col-xl-3 col-lg-4 col-sm-6">
       <div class="card mb-3">
-        <div class="card-body text-light <%= ad.mainCategory === 'keres' ? 'bg-dark' : 'bg-primary' %>">
-          <h5 class="card-title font-weight-bold"><%= ad.title %></h5>
-          <p class="card-text"><%= ad.description %></p>
+        <div class="card-body p-2 <%= ad.mainCategory === 'keres' ? 'bg-dark text-light' : 'bg-primary text-light' %>">
+          <h5 class="card-title font-weight-bold bg-light text-dark text-center p-2"><%= ad.title %></h5>
+          <p class="card-text"><%= ad.description.substring(0,200) %>...</p>
+          <span class="badge badge-light"># <%= ad.mainCategory %></span>
           <span class="badge badge-light"># <%= ad.city %></span>
           <span class="badge badge-light"># <%= ad.category %></span>
         </div>

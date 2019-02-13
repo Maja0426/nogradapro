@@ -7,12 +7,13 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 app.locals.moment = require('moment');
-mongoose.connect('mongodb://localhost:27017/ads_project_02', {
+mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds135255.mlab.com:35255/bgyapro-01', {
   useNewUrlParser: true
 });
 mongoose.set('useFindAndModify', false);
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -45,7 +46,6 @@ app.get('/ads', function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log(allAds);
       res.render('ads/index', {
         ads: allAds
       });
@@ -63,6 +63,7 @@ app.post('/ads', function (req, res) {
   var newAds = req.body.ads;
   Ads.create(newAds, function (err, createdAds) {
     if (err) {
+      res.redirect('ads');
       console.log(err);
     } else {
       res.redirect('/ads');
@@ -74,6 +75,7 @@ app.post('/ads', function (req, res) {
 app.get('/ads/:id', function (req, res) {
   Ads.findById(req.params.id, function(err, foundAd) {
     if (err) {
+      res.redirect('/ads');
       console.log(err);
     } else {
       res.render('ads/show', {
@@ -83,8 +85,41 @@ app.get('/ads/:id', function (req, res) {
   })
 });
 
+// EDIT PAGE
+app.get('/ads/:id/edit', function(req, res) {
+  Ads.findById(req.params.id, function(err, foundAd) {
+    if (err) {
+      rres.redirect('/ads');
+      console.log(err);
+    } else {
+      res.render('ads/edit', {ad: foundAd});
+    }
+  })
+});
 
+// UPDATE PAGE
+app.put('/ads/:id', function(req, res){
+  Ads.findByIdAndUpdate(req.params.id, req.body.ads, function (err, updateAd) {
+    if (err) {
+      res.redirect('/ads');
+      console.log(err);
+    } else {
+      res.redirect('/ads/'+req.params.id);
+    }
+  })
+});
 
+// DELETE PAGE
+app.delete('/ads/:id', function(req, res) {
+  Ads.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect('/ads');
+      console.log(err);
+    } else {
+      res.redirect('/ads');
+    }
+  })
+});
 
 app.get('/login', function (req, res) {
   res.render('login');
