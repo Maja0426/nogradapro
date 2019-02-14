@@ -129,6 +129,15 @@ app.get('/register', function (req, res) {
   res.render('register');
 })
 
+// Others
+app.get('/cookies', function(req, res) {
+  res.render('others/cooky');
+});
+
+app.get('/gdpr', function(req, res) {
+  res.render('others/gdpr');
+});
+
 // 404 ERROR PAGE
 app.get('*', function (req, res) {
   res.render('404');
