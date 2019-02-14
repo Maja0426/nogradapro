@@ -3,29 +3,41 @@
 <div class="container">
 
   <hr class="my-4">
-  <h1 class="text-center"><%= ad.title %></h1>
-  <h4 class="text-center"><b><%= ad.author %></b> hirdetése</h4>
+  <h1 class="text-center">
+    <%= ad.title %>
+  </h1>
+  <h4 class="text-center"><b>
+      <%= ad.author.username %></b> hirdetése</h4>
   <hr class="my-4">
 
 
   <div class="row">
     <div class="col-sm-6 show-img">
-      <img src="<%= ad.image === '' ? 'https://ssihplc.com/wp-content/uploads/no-image.png' : ad.image %>" class="img-fluid rounded" alt="users picture">
+      <img src="<%= ad.image === '' ? 'https://ssihplc.com/wp-content/uploads/no-image.png' : ad.image %>" class="img-fluid rounded"
+        alt="users picture">
     </div>
     <div class="col-sm-6 mx-auto">
-      <p class="lead my-3"><%= ad.description %></p>
+      <p class="lead my-3">
+        <%= ad.description %>
+      </p>
       <ul class="list-group list-group-flush mb-5">
-        <li class="list-group-item lead" title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:+36705301130"><%= ad.phone %></a></li>
-        <li class="list-group-item lead" title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right"><%= ad.city %></span></li>
-        <li class="list-group-item lead" title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right"><%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
-        <li class="list-group-item lead" title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right"><%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
+        <li class="list-group-item lead" title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:+36705301130">
+            <%= ad.phone %></a></li>
+        <li class="list-group-item lead" title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right">
+            <%= ad.city %></span></li>
+        <li class="list-group-item lead" title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
+            <%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
+        <li class="list-group-item lead" title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right">
+            <%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
       </ul>
       <div class="btn-wrapper col-12 mx-auto text-center">
+        <% if(currentUser && ad.author.id.equals(currentUser._id)) { %>
         <a href="/ads/<%= ad._id %>/edit" class="btn btn-lg btn-primary">Szerkeszt</a>
-<form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
-<button class="btn btn-lg btn-outline-danger my-2">Törlés!</button>
-</form>
-<a href="/ads" class="btn btn-lg btn-dark">Vissza</a>
+        <form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-lg btn-outline-danger my-2">Törlés!</button>
+        </form>
+        <% } %>
+        <a href="/ads" class="btn btn-lg btn-dark">Vissza</a>
       </div>
     </div>
   </div>

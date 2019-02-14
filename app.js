@@ -12,7 +12,7 @@ var PORT = process.env.PORT || 3000;
 
 app.locals.moment = require('moment');
 
-mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds135255.mlab.com:35255/bgyapro-01', {
+mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds135335.mlab.com:35335/bgyapro-02', {
   useNewUrlParser: true
 });
 mongoose.set('useFindAndModify', false);
@@ -66,8 +66,30 @@ app.get('/ads/new', isLoggedIn, function (req, res) {
 
 // CREATE NEW ADS
 app.post('/ads', function (req, res) {
-  req.body.ads.author = req.user.username;
-  Ads.create(req.body.ads, function (err, createdAds) {
+  var phone = req.body.ads.phone;
+  var image = req.body.ads.image;
+  var title = req.body.ads.title;
+  var mainCategory = req.body.ads.mainCategory;
+  var category = req.body.ads.category;
+  var price = req.body.ads.price;
+  var description = req.body.ads.description;
+  var city = req.body.ads.city;
+  var author = {
+    id: req.user._id,
+    username: req.user.username
+  };
+  var newAd = {
+    phone: phone,
+    image: image,
+    title: title,
+    mainCategory: mainCategory,
+    category: category,
+    price: price,
+    description: description,
+    city: city,
+    author: author
+  }
+  Ads.create(newAd, function (err, createdAds) {
     if (err) {
       res.redirect('ads');
       console.log(err);
