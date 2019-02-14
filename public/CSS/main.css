@@ -1,3 +1,8 @@
+/* ADD SMOOTH SCROLLING IN-PAGE NAVIGATION */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding-top: 56px;
 }
@@ -7,11 +12,11 @@ body {
   background: url('https://www.wykop.pl/cdn/c3201142/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
 }
 
-.wpaper {
+/* .wpaper {
   width: 100%;
   height: 100vh;
   background: url('http://images6.fanpop.com/image/photos/39500000/41703-rick-and-morty-mr-meeseeks-wallpaper-rick-and-morty-39567951-1595-896.jpg') no-repeat 75% center/cover;
-}
+} */
 
 /* .card {
   box-shadow: 5px 5px 5px #555;
@@ -42,7 +47,7 @@ body {
 .log-bg {
   width: 100%;
   height: calc(100vh - 56px);
-  background: url('http://images6.fanpop.com/image/photos/39500000/41703-rick-and-morty-mr-meeseeks-wallpaper-rick-and-morty-39567951-1595-896.jpg') no-repeat 70% center/cover;
+  background: #e9ecef;
 }
 
 .radios .custom-radio {

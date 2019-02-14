@@ -10,6 +10,29 @@
   <link rel="stylesheet" href="/CSS/main.css">
   <title>BgyApro Online</title>
 <% moment.locale("hu") %>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function () {
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#000"
+        },
+        "button": {
+          "background": "#f1d600"
+        }
+      },
+      "theme": "edgeless",
+      "content": {
+        "message": "Ez a weboldal cookie-kat használ annak biztosítására, hogy a lehető legjobb élményt nyújthassuk honlapunkon.",
+        "dismiss": "Rendben!",
+        "link": "További tudnivalók",
+        "href": "/cookies"
+      }
+    })
+  });
+</script>
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
@@ -24,20 +47,18 @@
       <li class="nav-item active">
         <a class="nav-link" href="/ads/new">Hirdetésfeladás <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Keres</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Kínál</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Keres/Kínál</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Keres</a>
+          <a class="dropdown-item" href="#">Kínál</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Település</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Kategória</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Rólam</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 ml-auto">
@@ -55,4 +76,4 @@
   </div>
 </nav>
 
-<body>
+<body id="pageTop">

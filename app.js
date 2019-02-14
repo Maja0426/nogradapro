@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-// SCHEMA SETUP
+// SCHEMA SETUP - ADS DB SCHEMA
 var adsSchema = new mongoose.Schema({
   title: String,
   image: String,
@@ -53,7 +53,7 @@ app.get('/ads', function (req, res) {
   })
 });
 
-// NEW ADS PAGE
+// NEW ADS PAGE - ADDED NEW AD
 app.get('/ads/new', function (req, res) {
   res.render('ads/new');
 });
@@ -71,7 +71,7 @@ app.post('/ads', function (req, res) {
   })
 });
 
-// SHOW PAGE
+// SHOW PAGE - SHOW THE SELECTED AD
 app.get('/ads/:id', function (req, res) {
   Ads.findById(req.params.id, function(err, foundAd) {
     if (err) {
@@ -85,7 +85,7 @@ app.get('/ads/:id', function (req, res) {
   })
 });
 
-// EDIT PAGE
+// EDIT PAGE - EDIT THE SELECTED AD
 app.get('/ads/:id/edit', function(req, res) {
   Ads.findById(req.params.id, function(err, foundAd) {
     if (err) {
@@ -121,6 +121,8 @@ app.delete('/ads/:id', function(req, res) {
   })
 });
 
+
+// AUTHENTICATION
 app.get('/login', function (req, res) {
   res.render('login');
 })
@@ -129,7 +131,7 @@ app.get('/register', function (req, res) {
   res.render('register');
 })
 
-// Others
+// OTHERS PAGE
 app.get('/cookies', function(req, res) {
   res.render('others/cooky');
 });
@@ -138,11 +140,17 @@ app.get('/gdpr', function(req, res) {
   res.render('others/gdpr');
 });
 
+app.get('/impressum', function(req, res) {
+  res.render('others/impressum');
+});
+
 // 404 ERROR PAGE
 app.get('*', function (req, res) {
   res.render('404');
 });
 
+
+// LAUNCH
 app.listen(PORT, function () {
   console.log(`Server started on port ${PORT}`);
 })
