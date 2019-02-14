@@ -15,17 +15,17 @@
     <div class="col-sm-6 mx-auto">
       <p class="lead my-3"><%= ad.description %></p>
       <ul class="list-group list-group-flush mb-5">
-        <li class="list-group-item lead">Tel.: <a class="float-right" href="tel:+36705301130"><%= ad.phone %></a></li>
-        <li class="list-group-item lead">Település: <span class="float-right"><%= ad.city %></span></li>
-        <li class="list-group-item lead">Ár: <span class="float-right"><%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
-        <li class="list-group-item lead">Feladás ideje: <span class="float-right"><%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
+        <li class="list-group-item lead" title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:+36705301130"><%= ad.phone %></a></li>
+        <li class="list-group-item lead" title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right"><%= ad.city %></span></li>
+        <li class="list-group-item lead" title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right"><%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
+        <li class="list-group-item lead" title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right"><%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
       </ul>
       <div class="btn-wrapper col-12 mx-auto text-center">
-        <a href="/ads/<%= ad._id %>/edit" class="btn btn-lg btn-dark">Szerkeszt</a>
-        <a href="/ads" class="btn btn-lg btn-secondary">Vissza</a>
+        <a href="/ads/<%= ad._id %>/edit" class="btn btn-lg btn-primary">Szerkeszt</a>
 <form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
-<button class="btn btn-lg btn-danger my-2">Törlés</button>
+<button class="btn btn-lg btn-outline-danger my-2">Törlés!</button>
 </form>
+<a href="/ads" class="btn btn-lg btn-dark">Vissza</a>
       </div>
     </div>
   </div>

@@ -2,39 +2,40 @@ var express = require('express');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
 var app = express();
 
+var Ads = require('./models/ad');
+var User = require('./models/user');
 var PORT = process.env.PORT || 3000;
 
 app.locals.moment = require('moment');
+
 mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds135255.mlab.com:35255/bgyapro-01', {
   useNewUrlParser: true
 });
 mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
 app.set('view engine', 'ejs');
+
+// PASSPORT CONFIG
+app.use(require('express-session')({
+  secret: 'I would like a new job for me',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 
-// SCHEMA SETUP - ADS DB SCHEMA
-var adsSchema = new mongoose.Schema({
-  title: String,
-  image: String,
-  mainCategory: String,
-  category: String,
-  price: String,
-  city: String,
-  phone: String,
-  description: String,
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
-});
-
-var Ads = mongoose.model('Ads', adsSchema);
 
 app.get('/', function (req, res) {
   res.redirect('/ads');
@@ -54,7 +55,7 @@ app.get('/ads', function (req, res) {
 });
 
 // NEW ADS PAGE - ADDED NEW AD
-app.get('/ads/new', function (req, res) {
+app.get('/ads/new', isLoggedIn, function (req, res) {
   res.render('ads/new');
 });
 
@@ -86,7 +87,7 @@ app.get('/ads/:id', function (req, res) {
 });
 
 // EDIT PAGE - EDIT THE SELECTED AD
-app.get('/ads/:id/edit', function(req, res) {
+app.get('/ads/:id/edit', isLoggedIn, function (req, res) {
   Ads.findById(req.params.id, function(err, foundAd) {
     if (err) {
       rres.redirect('/ads');
@@ -122,14 +123,43 @@ app.delete('/ads/:id', function(req, res) {
 });
 
 
-// AUTHENTICATION
+// AUTHORIZATION
 app.get('/login', function (req, res) {
   res.render('login');
-})
+});
+
+// login logic
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/ads',
+  failureRedirect: '/login'
+}), function(req, res) {
+});
 
 app.get('/register', function (req, res) {
   res.render('register');
-})
+});
+
+// handling sign up form
+app.post('/register', function(req, res) {
+  var newUser = new User({
+    username: req.body.username,
+    email: req.body.email
+  });
+  User.register(newUser, req.body.password, function(err, regUser) {
+    if (err) {
+      console.log(err);
+      return res.render('register');
+    } 
+      passport.authenticate('local')(req, res, function() {
+        res.redirect('/ads');
+      });
+  });
+});
+
+app.get('/logout', function(req, res) {
+  req.logout();
+  res.redirect('/ads');
+});
 
 // OTHERS PAGE
 app.get('/cookies', function(req, res) {
@@ -149,6 +179,12 @@ app.get('*', function (req, res) {
   res.render('404');
 });
 
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+}
+res.redirect('/login');
+}
 
 // LAUNCH
 app.listen(PORT, function () {

@@ -53,3 +53,15 @@ body {
 .radios .custom-radio {
   display: inline !important;
 }
+
+/* custom title element */
+li[title]:hover:after {
+  content: attr(title);
+  background: #772953;
+  color: #e9ecef;
+  padding: 2px 4px;
+  position: absolute;
+  left: 15%;
+  top: 20%;
+  border-radius: 5px;
+}

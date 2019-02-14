@@ -27,7 +27,7 @@
         <div class="card-footer bg-secondary">
           <div class="row">
             <div class="col-6">
-              <p><%= moment(ad.createdAt).format('YYYY.MM.D.') %></p>
+              <p><i class="fas fa-clock"></i> <%= moment(ad.createdAt).format('YYYY.MM.D.') %></p>
               <p><i class="fas fa-money-bill-alt"></i> <%= ad.price === '' ? 'Nincs ár' : ad.price %></p>
             </div>
             <div class="col-6">
