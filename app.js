@@ -36,6 +36,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+
 
 app.get('/', function (req, res) {
   res.redirect('/ads');
@@ -61,8 +66,8 @@ app.get('/ads/new', isLoggedIn, function (req, res) {
 
 // CREATE NEW ADS
 app.post('/ads', function (req, res) {
-  var newAds = req.body.ads;
-  Ads.create(newAds, function (err, createdAds) {
+  req.body.ads.author = req.user.username;
+  Ads.create(req.body.ads, function (err, createdAds) {
     if (err) {
       res.redirect('ads');
       console.log(err);
