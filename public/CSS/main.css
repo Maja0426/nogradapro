@@ -55,8 +55,8 @@ body {
 }
 
 /* custom title element */
-li[title]:hover:after {
-  content: attr(title);
+li[custom-title]:hover:after {
+  content: attr(custom-title);
   background: #772953;
   color: #e9ecef;
   padding: 2px 4px;
@@ -67,6 +67,6 @@ li[title]:hover:after {
 }
 
 .messages {
-  position: absolute;
   top: 10%;
+  position: absolute;
 }

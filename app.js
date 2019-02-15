@@ -9,6 +9,7 @@ var app = express();
 
 var adsRoutes = require('./routes/ads');
 var indexRoutes = require('./routes/index');
+var userRoutes = require('./routes/users');
 
 var User = require('./models/user');
 var PORT = process.env.PORT || 3000;
@@ -49,6 +50,7 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRoutes);
 app.use('/ads', adsRoutes);
+app.use('/user', userRoutes);
 
 // OTHERS PAGE - FOOTER
 app.get('/cookies', function(req, res) {

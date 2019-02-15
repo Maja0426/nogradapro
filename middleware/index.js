@@ -14,17 +14,19 @@ middlewareObj.checkUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     Ads.findById(req.params.id, function (err, foundAd) {
       if (err) {
+        req.flash('error', 'HIba történt. Nem található a hirdetés.');
         res.redirect('back');
-        console.log(err);
       } else {
         if (foundAd.author.id.equals(req.user._id)) {
           next();
         } else {
+          req.flash('error', 'Ehhez a művelethez Önnek nincs jogosultsága.');
           res.redirect('back');
         }
       }
     });
   } else {
+    req.flash('error', 'Ehhez a művelethez előbb be kell jelentkezni.');
     res.redirect('back');
   }
 };

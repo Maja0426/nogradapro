@@ -48,9 +48,10 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
   }
   Ads.create(newAd, function (err, createdAds) {
     if (err) {
+      req.flash('error', 'Valami hiba történt. Próbálja újra.');
       res.redirect('ads');
-      console.log(err);
     } else {
+      req.flash('success', 'Az Ön új hirdetése kész!');
       res.redirect('/ads');
     }
   })
@@ -60,10 +61,9 @@ router.post('/', middleware.isLoggedIn, function (req, res) {
 router.get('/:id', function (req, res) {
   Ads.findById(req.params.id, function (err, foundAd) {
     if (err) {
+      req.flash('error', 'Valami hiba történt. Próbálja újra.');
       res.redirect('/ads');
-      console.log(err);
     } else {
-      console.log(foundAd);
       res.render('ads/show', {
         ad: foundAd
       });
@@ -82,9 +82,10 @@ router.get('/:id/edit', middleware.checkUser, function (req, res) {
 router.put('/:id', middleware.checkUser, function (req, res) {
   Ads.findByIdAndUpdate(req.params.id, req.body.ads, function (err, updateAd) {
     if (err) {
+      req.flash('error', 'Valami hiba történt. Próbálja újra.');
       res.redirect('/ads');
-      console.log(err);
     } else {
+      req.flash('success', 'Hirdetés módosítva!');
       res.redirect('/ads/' + req.params.id);
     }
   })
@@ -94,9 +95,11 @@ router.put('/:id', middleware.checkUser, function (req, res) {
 router.delete('/:id', middleware.checkUser, function (req, res) {
   Ads.findByIdAndRemove(req.params.id, function (err) {
     if (err) {
+      req.flash('error', 'Valami hiba történt. Próbálja újra.');
       res.redirect('/ads');
       console.log(err);
     } else {
+      req.flash('success', 'Hirdetés törölve!');
       res.redirect('/ads');
     }
   })

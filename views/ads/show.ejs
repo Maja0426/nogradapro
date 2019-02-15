@@ -3,11 +3,13 @@
 <div class="container">
 
   <hr class="my-4">
-  <h1 class="text-center">
+  <h2 class="text-center">
     <%= ad.title %>
-  </h1>
-  <h4 class="text-center"><b>
-      <%= ad.author.username %></b> hirdetése</h4>
+  </h2>
+  <h4 class="text-center">
+    <b class="text-primary">
+      <a href="/user/<%= ad.author.id %>"><%= ad.author.username %></a></b> hirdetése
+  </h4>
   <hr class="my-4">
 
 
@@ -21,13 +23,13 @@
         <%= ad.description %>
       </p>
       <ul class="list-group list-group-flush mb-5">
-        <li class="list-group-item lead" title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:+36705301130">
+        <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:+36705301130">
             <%= ad.phone %></a></li>
-        <li class="list-group-item lead" title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right">
+        <li class="list-group-item lead" custom-title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right">
             <%= ad.city %></span></li>
-        <li class="list-group-item lead" title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
+        <li class="list-group-item lead" custom-title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
             <%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
-        <li class="list-group-item lead" title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right">
+        <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right">
             <%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
       </ul>
       <div class="btn-wrapper col-12 mx-auto text-center">
