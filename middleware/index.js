@@ -6,6 +6,7 @@ middlewareObj.isLoggedIn = function (req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
+  req.flash('error', 'Ehhez a művelethez előbb be kell jelentkezni.');
   res.redirect('/login');
 };
 

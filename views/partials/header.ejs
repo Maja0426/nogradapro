@@ -35,6 +35,7 @@
 </script>
 </head>
 
+<body id="pageTop">
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
   <a class="navbar-brand" href="/ads">bgyapro</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
@@ -85,4 +86,23 @@
   </div>
 </nav>
 
-<body id="pageTop">
+<div class="container-fluid messages">
+  <% if (error && error.length > 0) { %>
+<div class="alert alert-dismissible alert-danger mt-3 text-center">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">Figyelem!</h4>
+  <p class="mb-0">
+    <%= error %>
+  </p>
+</div>
+  <% } %>
+<% if (success && success.length > 0) { %>
+<div class="alert alert-dismissible alert-success mt-3 text-center">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4 class="alert-heading">Figyelem!</h4>
+  <p class="mb-0">
+    <%= success %>
+  </p>
+</div>
+<% } %>
+</div>

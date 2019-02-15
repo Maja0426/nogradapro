@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
+var flash = require('connect-flash');
 var app = express();
 
 var adsRoutes = require('./routes/ads');
@@ -21,6 +22,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 app.set('view engine', 'ejs');
+app.use(flash());
 
 // PASSPORT CONFIG
 app.use(require('express-session')({
@@ -40,6 +42,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
   next();
 });
 
