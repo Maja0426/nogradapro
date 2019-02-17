@@ -9,6 +9,8 @@ router.get('/', function (req, res) {
 
 
 // AUTHORIZATION
+
+// Login
 router.get('/login', function (req, res) {
   res.render('login');
 });
@@ -16,9 +18,13 @@ router.get('/login', function (req, res) {
 // login logic
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/ads',
-  failureRedirect: '/login'
+  failureRedirect: '/login',
+  failureFlash: true,
+  successFlash: 'Sikeres bejelentkezés!'
 }), function (req, res) {});
 
+
+// Register
 router.get('/register', function (req, res) {
   res.render('register');
 });
@@ -31,14 +37,28 @@ router.post('/register', function (req, res) {
   });
   User.register(newUser, req.body.password, function (err, regUser) {
     if (err) {
-      console.log(err);
-      return res.render('register');
-    }
+      req.flash('error', err.message);
+      console.log(err.message);
+      res.redirect('/register');
+    } else {
     passport.authenticate('local')(req, res, function () {
+      req.flash('success', 'Üdvözlet a bgyapro-n ' + regUser.username + '.');
       res.redirect('/ads');
     });
+  }
   });
 });
+
+// router.get('/auth/facebook', passport.authenticate('facebook', {
+//   scope: ['email']
+// }));
+
+// router.get('/auth/facebook/callback',
+//   passport.authenticate('facebook', {
+//     successRedirect: '/ads',
+//     failureRedirect: '/'
+//   }));
+
 
 router.get('/logout', function (req, res) {
   req.logout();

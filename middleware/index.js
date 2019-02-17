@@ -13,21 +13,21 @@ middlewareObj.isLoggedIn = function (req, res, next) {
 middlewareObj.checkUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     Ads.findById(req.params.id, function (err, foundAd) {
-      if (err) {
-        req.flash('error', 'HIba történt. Nem található a hirdetés.');
-        res.redirect('back');
+      if (err || !foundAd) {
+        req.flash('error', 'Hiba történt. Nem található a hirdetés.');
+        res.redirect('/ads');
       } else {
         if (foundAd.author.id.equals(req.user._id)) {
           next();
         } else {
           req.flash('error', 'Ehhez a művelethez Önnek nincs jogosultsága.');
-          res.redirect('back');
+          res.redirect('/ads');
         }
       }
     });
   } else {
     req.flash('error', 'Ehhez a művelethez előbb be kell jelentkezni.');
-    res.redirect('back');
+    res.redirect('/ads');
   }
 };
 

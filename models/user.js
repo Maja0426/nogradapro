@@ -16,13 +16,7 @@ var userSchema = new mongoose.Schema({
   userCreated: {
     type: Date,
     default: Date.now
-  },
-  ads: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Ads'
-    }
-  ]
+  }
 });
 
 userSchema.plugin(passportLocalMongoose);

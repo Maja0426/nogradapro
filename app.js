@@ -11,6 +11,7 @@ var adsRoutes = require('./routes/ads');
 var indexRoutes = require('./routes/index');
 var userRoutes = require('./routes/users');
 
+var Ads = require('./models/ad');
 var User = require('./models/user');
 var PORT = process.env.PORT || 3000;
 
@@ -45,9 +46,12 @@ app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash('error');
   res.locals.success = req.flash('success');
+  res.locals.pageUrl = req.hostname + '://' + req.get('host') + req.originalUrl;
   next();
 });
 
+
+// ROUTES CONFIG
 app.use('/', indexRoutes);
 app.use('/ads', adsRoutes);
 app.use('/user', userRoutes);

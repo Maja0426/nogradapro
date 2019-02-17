@@ -52,6 +52,7 @@ body {
 
 .radios .custom-radio {
   display: inline !important;
+  margin: 0 4px;
 }
 
 /* custom title element */
