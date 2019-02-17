@@ -8,7 +8,8 @@
   </h2>
   <h4 class="text-center">
     <b class="text-primary">
-      <a href="/user/<%= ad.author.id %>"><%= ad.author.username %></a></b> hirdetése
+      <a href="/user/<%= ad.author.id %>">
+        <%= ad.author.username %></a></b> hirdetése
   </h4>
   <hr class="my-4">
 
@@ -23,28 +24,31 @@
         <%= ad.description %>
       </p>
       <ul class="list-group list-group-flush mb-5">
-        <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:+36705301130">
+        <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right"
+            href="tel:+36705301130">
             <%= ad.phone %></a></li>
         <li class="list-group-item lead" custom-title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right">
             <%= ad.city %></span></li>
-        <li class="list-group-item lead" custom-title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
+        <li class="list-group-item lead" custom-title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span
+            class="float-right">
             <%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
-        <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right">
+        <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span
+            class="float-right">
             <%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
       </ul>
       <div class="btn-wrapper col-12 mx-auto text-center">
         <% if(currentUser && ad.author.id.equals(currentUser._id)) { %>
-        <a href="/ads/<%= ad._id %>/edit" class="btn btn-lg btn-primary">Szerkeszt</a>
+        <a href="/ads/<%= ad._id %>/edit" class="btn btn-primary">Szerkeszt</a>
         <form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
-          <button class="btn btn-lg btn-outline-danger my-2">Törlés!</button>
+          <button class="btn btn-outline-danger my-2">Törlés!</button>
         </form>
         <% } %>
         <a href="/ads" class="btn btn-dark">Vissza</a>
-<!-- Your share button code -->
-<div class="fb-share-button" data-href="<%= pageUrl %>" data-layout="button" data-size="large"
-data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbgyapro-demo.herokuapp.com%2F&amp;src=sdkpreparse"
-    class="fb-xfbml-parse-ignore">Megosztás</a>
-  </div>
+        <!-- Your share button code -->
+        <div class="fb-share-button" data-href="<%= pageUrl %>" data-layout="button" data-size="large"
+          data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbgyapro-demo.herokuapp.com%2F&amp;src=sdkpreparse"
+            class="btn btn-face"><i class="fab fa-facebook"></i> Megosztás</a>
+        </div>
       </div>
     </div>
   </div>

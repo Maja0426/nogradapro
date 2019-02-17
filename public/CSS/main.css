@@ -71,3 +71,13 @@ li[custom-title]:hover:after {
   top: 10%;
   position: absolute;
 }
+
+.btn-face {
+  background: #3B5998;
+  color: #fff;
+}
+
+.btn-face:hover {
+  background: #293E6A;
+  color: #fff;
+}
