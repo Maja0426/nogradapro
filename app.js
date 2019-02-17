@@ -46,7 +46,7 @@ app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash('error');
   res.locals.success = req.flash('success');
-  res.locals.pageUrl = req.hostname + '://' + req.get('host') + req.originalUrl;
+  res.locals.pageUrl = 'http://' + req.get('host') + req.originalUrl;
   next();
 });
 
