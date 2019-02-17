@@ -86,3 +86,8 @@ li[custom-title]:hover:after {
     background: #1DA1F2;
     color: #fff;
 }
+
+.btn-twitter:hover {
+  background: #527dda;
+  color: #fff;
+}
