@@ -3,11 +3,38 @@ var router = express.Router();
 var Ads = require('../models/ad');
 var middleware = require('../middleware');
 
+var multer = require('multer');
+var storage = multer.diskStorage({
+  filename: function (req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+var imageFilter = function (req, file, cb) {
+  // accept image files only
+  if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+    return cb(new Error('Csak képfile-t lehet feltölteni!'), false);
+  }
+  cb(null, true);
+};
+var upload = multer({
+  storage: storage,
+  fileFilter: imageFilter
+})
+
+var cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: 'maja0426',
+  api_key: '831789779817282',
+  api_secret: 'A8gM9XzEuhRuLSds9Fru_l7lTz0'
+});
+
 // INDEX PAGE, LIST ALL ADS
 router.get('/', function (req, res) {
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-    Ads.find({title: regex}, function (err, allAds) {
+    Ads.find({
+      title: regex
+    }, function (err, allAds) {
       if (err) {
         console.log(err);
       } else {
@@ -35,93 +62,81 @@ router.get('/new', middleware.isLoggedIn, function (req, res) {
 });
 
 // CREATE NEW ADS
-router.post('/', middleware.isLoggedIn, function (req, res) {
-  var phone = req.body.ads.phone;
-  var image = req.body.ads.image;
-  var title = req.body.ads.title;
-  var mainCategory = req.body.ads.mainCategory;
-  var category = req.body.ads.category;
-  var price = req.body.ads.price;
-  var description = req.body.ads.description;
-  var city = req.body.ads.city;
-  var author = {
-    id: req.user._id,
-    username: req.user.username
-  };
-  var newAd = {
-    phone: phone,
-    image: image,
-    title: title,
-    mainCategory: mainCategory,
-    category: category,
-    price: price,
-    description: description,
-    city: city,
-    author: author
-  }
-  Ads.create(newAd, function (err, createdAds) {
-    if (err) {
-      req.flash('error', 'Valami hiba történt. Próbálja újra.');
-      res.redirect('ads');
-    } else {
-      req.flash('success', 'Az Ön új hirdetése kész!');
-      res.redirect('/ads');
-    }
-  })
-});
-
-// SHOW PAGE - SHOW THE SELECTED AD
-router.get('/:id', function (req, res) {
-  Ads.findById(req.params.id, function (err, foundAd) {
-    if (err) {
-      req.flash('error', 'Valami hiba történt. Próbálja újra.');
-      res.redirect('/ads');
-    } else {
-      res.render('ads/show', {
-        ad: foundAd
+router.post('/', middleware.isLoggedIn, upload.single('image'), function (req, res) {
+      cloudinary.v2.uploader.upload(req.file.path, function (result) {
+        // add cloudinary url for the image to the ads object under image property
+        req.body.ads.image = result.secure_url;
+        // add author to ads
+        req.body.ads.author = {
+          id: req.user._id,
+          username: req.user.username
+        }
+        Ads.create(req.body.ads, function (err, createdAds) {
+          if (err) {
+            req.flash('error', 'Valami hiba történt. Próbálja újra.');
+            res.redirect('ads');
+          } else {
+            req.flash('success', 'Az Ön új hirdetése kész!');
+            res.redirect('/ads');
+          }
+        })
       });
-    }
-  })
-});
+    });
 
-// EDIT PAGE - EDIT THE SELECTED AD
-router.get('/:id/edit', middleware.checkUser, function (req, res) {
-  Ads.findById(req.params.id, function (err, foundAd) {
-      res.render('ads/edit', {ad: foundAd});
-  });
-});
+      // SHOW PAGE - SHOW THE SELECTED AD
+      router.get('/:id', function (req, res) {
+        Ads.findById(req.params.id, function (err, foundAd) {
+          if (err) {
+            req.flash('error', 'Valami hiba történt. Próbálja újra.');
+            res.redirect('/ads');
+          } else {
+            res.render('ads/show', {
+              ad: foundAd
+            });
+          }
+        })
+      });
 
-// UPDATE PAGE
-router.put('/:id', middleware.checkUser, function (req, res) {
-  Ads.findByIdAndUpdate(req.params.id, req.body.ads, function (err, updateAd) {
-    if (err) {
-      req.flash('error', 'Valami hiba történt. Próbálja újra.');
-      res.redirect('/ads');
-    } else {
-      req.flash('success', 'Hirdetés módosítva!');
-      res.redirect('/ads/' + req.params.id);
-    }
-  })
-});
+      // EDIT PAGE - EDIT THE SELECTED AD
+      router.get('/:id/edit', middleware.checkUser, function (req, res) {
+        Ads.findById(req.params.id, function (err, foundAd) {
+          res.render('ads/edit', {
+            ad: foundAd
+          });
+        });
+      });
 
-// DELETE PAGE
-router.delete('/:id', middleware.checkUser, function (req, res) {
-  Ads.findByIdAndRemove(req.params.id, function (err) {
-    if (err) {
-      req.flash('error', 'Valami hiba történt. Próbálja újra.');
-      res.redirect('/ads');
-      console.log(err);
-    } else {
-      req.flash('success', 'Hirdetés törölve!');
-      res.redirect('/ads');
-    }
-  })
-});
+      // UPDATE PAGE
+      router.put('/:id', middleware.checkUser, function (req, res) {
+        Ads.findByIdAndUpdate(req.params.id, req.body.ads, function (err, updateAd) {
+          if (err) {
+            req.flash('error', 'Valami hiba történt. Próbálja újra.');
+            res.redirect('/ads');
+          } else {
+            req.flash('success', 'Hirdetés módosítva!');
+            res.redirect('/ads/' + req.params.id);
+          }
+        })
+      });
 
-// SEARCH REGEX
-function escapeRegex(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-};
+      // DELETE PAGE
+      router.delete('/:id', middleware.checkUser, function (req, res) {
+        Ads.findByIdAndRemove(req.params.id, function (err) {
+          if (err) {
+            req.flash('error', 'Valami hiba történt. Próbálja újra.');
+            res.redirect('/ads');
+            console.log(err);
+          } else {
+            req.flash('success', 'Hirdetés törölve!');
+            res.redirect('/ads');
+          }
+        })
+      });
+
+      // SEARCH REGEX
+      function escapeRegex(text) {
+        return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+      };
 
 
-module.exports = router;
+      module.exports = router;
