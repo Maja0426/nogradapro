@@ -31,4 +31,16 @@ middlewareObj.checkUser = function (req, res, next) {
   }
 };
 
+middlewareObj.checkAllAds = function (req, res, next) {
+  Content.find({}, function (err, allAds) {
+    if (err || !allAds) {
+      req.flash("error", "Nem találhatók hirdetések!");
+      res.redirect("/ads");
+    } else {
+      allAd = allAds;
+    }
+    next();
+  });
+}
+
 module.exports = middlewareObj;

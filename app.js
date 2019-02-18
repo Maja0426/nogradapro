@@ -74,7 +74,9 @@ app.get('*', function (req, res) {
 });
 
 
-// LAUNCH
+// START SERVER SCRIPT
 app.listen(PORT, function () {
-  console.log(`Server started on port ${PORT}`);
-})
+  console.log("======================================================");
+  console.log(`YOUR LIFE WILL BE CHANGE.. SERVER STARTED ON PORT ${PORT}`);
+  console.log("======================================================");
+});

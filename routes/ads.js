@@ -5,15 +5,28 @@ var middleware = require('../middleware');
 
 // INDEX PAGE, LIST ALL ADS
 router.get('/', function (req, res) {
-  Ads.find({}, function (err, allAds) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('ads/index', {
-        ads: allAds
-      });
-    }
-  })
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    Ads.find({title: regex}, function (err, allAds) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds
+        });
+      }
+    })
+  } else {
+    Ads.find({}, function (err, allAds) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds
+        });
+      }
+    })
+  }
 });
 
 // NEW ADS PAGE - ADDED NEW AD
@@ -104,5 +117,11 @@ router.delete('/:id', middleware.checkUser, function (req, res) {
     }
   })
 });
+
+// SEARCH REGEX
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 
 module.exports = router;
