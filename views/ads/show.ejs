@@ -1,4 +1,119 @@
-<% include ../partials/header %>
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+  <link rel="stylesheet" href="/CSS/main.css">
+  <title>BgyApro Online</title>
+  <% moment.locale("hu") %>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#000"
+        },
+        "button": {
+          "background": "#f1d600"
+        }
+      },
+      "theme": "edgeless",
+      "content": {
+        "message": "Ez a weboldal cookie-kat használ annak biztosítására, hogy a lehető legjobb élményt nyújthassuk honlapunkon.",
+        "dismiss": "Rendben!",
+        "link": "További tudnivalók",
+        "href": "/cookies"
+      }
+    })
+  });
+</script>
+  <meta property="og:url" content="<%= pageUrl %>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= ad.title %>">
+  <meta property="og:description" content="<%= ad.description %>">
+  <meta property="og:image" content="<%= ad.image %>">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="300">
+</head>
+
+<body id="pageTop">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+    <a class="navbar-brand" href="/ads">bgyapro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/ads/new">Hirdetésfeladás <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">Keres/Kínál</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="#">Keres</a>
+            <a class="dropdown-item" href="#">Kínál</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Település</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Kategória</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0 ml-auto">
+        <input class="form-control mr-sm-2" type="text" placeholder="Keresés">
+        <button class="btn btn-light my-2 my-sm-0" type="submit">Keres</button>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        <% if (!currentUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Belépés</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Regisztráció</a>
+        </li>
+        <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/<%= currentUser._id %>">Üdv
+            <%= currentUser.username %>!</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Kijelentkezés</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid messages">
+    <% if (error && error.length > 0) { %>
+    <div class="alert alert-dismissible alert-danger mt-3 text-center">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="mb-0">
+        <%= error %>
+      </h4>
+    </div>
+    <% } %>
+    <% if (success && success.length > 0) { %>
+    <div class="alert alert-dismissible alert-success mt-3 text-center">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4 class="mb-0">
+        <%= success %>
+      </h4>
+    </div>
+    <% } %>
+  </div>
+
 
 <div class="container">
 
@@ -34,7 +149,7 @@
             <%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
         <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span
             class="float-right">
-            <%= moment(ad.createdAt).format('YYYY.MM.D.') %></span></li>
+            <%= moment(ad.createdAt).format('YYYY. MMMM D.') %></span></li>
       </ul>
       <div class="btn-wrapper col-12 mx-auto text-center">
         <% if(currentUser && ad.author.id.equals(currentUser._id)) { %>
