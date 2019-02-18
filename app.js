@@ -12,7 +12,7 @@ var indexRoutes = require('./routes/index');
 var userRoutes = require('./routes/users');
 
 var User = require('./models/user');
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 4000;
 
 app.locals.moment = require('moment');
 
