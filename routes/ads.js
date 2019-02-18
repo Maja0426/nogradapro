@@ -63,7 +63,7 @@ router.get('/new', middleware.isLoggedIn, function (req, res) {
 
 // CREATE NEW ADS
 router.post('/', middleware.isLoggedIn, upload.single('image'), function (req, res) {
-      cloudinary.v2.uploader.upload(req.file.path, function (result) {
+      cloudinary.uploader.upload(req.file.path, function (result) {
         // add cloudinary url for the image to the ads object under image property
         req.body.ads.image = result.secure_url;
         // add author to ads
