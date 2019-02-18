@@ -37,8 +37,8 @@
 </head>
 
 <body id="pageTop">
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
-    <a class="navbar-brand" href="/ads">bgyapro</a>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/ads"><i class="fas fa-home"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
 
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/ads/new">Hirdetésfeladás <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
@@ -57,17 +57,17 @@
             <a class="dropdown-item" href="#">Kínál</a>
           </div>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Település</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="#">Kategória</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 ml-auto" action="/ads" method="GET">
+      <!-- <form class="form-inline my-xl-0 mr-0" action="/ads" method="GET">
         <input class="form-control mr-sm-2" type="text" name="search" placeholder="Keresés">
         <button class="btn btn-light my-2 my-sm-0" type="submit">Keres</button>
-      </form>
+      </form> -->
       <ul class="navbar-nav ml-auto">
         <% if (!currentUser) { %>
         <li class="nav-item">
@@ -86,6 +86,10 @@
         </li>
         <% } %>
       </ul>
+      <form class="form-inline my-xl-0 mr-0" action="/ads" method="GET">
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Keresés">
+        <button class="btn btn-light my-2 my-sm-0" type="submit">Keres</button>
+      </form>
     </div>
   </nav>
 
