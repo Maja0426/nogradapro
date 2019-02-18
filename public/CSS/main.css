@@ -92,7 +92,3 @@ li[custom-title]:hover:after {
   background: #527dda;
   color: #fff;
 }
-
-input.form-control {
-  border-radius: 30px;
-  /* border-color: #e9ecef; */
