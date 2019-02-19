@@ -20,7 +20,7 @@
       <div class="card ads-card mb-3">
         <div class="card-body p-2 <%= ad.mainCategory === 'Keres' ? 'bg-dark text-light' : 'bg-primary text-light' %>">
           <h5 class="card-title font-weight-bold bg-light text-dark text-center p-2"><%= ad.title.length > 20 ? ad.title.substring(0,20)+'...' : ad.title %> </h5>
-          <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550505868/Aprohirdetes/no-image.png' : ad.image %>" class="card-img" alt="...">
+          <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550505868/Aprohirdetes/no-image.png' : ad.image %>" class="card-img" alt="User photo">
           <div class="mt-1">
             <span class="badge badge-light"># <%= ad.mainCategory %></span>
             <span class="badge badge-light"># <%= ad.city %></span>

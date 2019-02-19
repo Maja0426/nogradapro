@@ -17,12 +17,12 @@ body {
 }
 
 .card-body {
-  height: 345px;
+  height: 330px;
   transition: .3s ease-in-out;
 }
 
 .card-body img {
-  height: 250px;
+  height: 230px;
 }
 
 .card-footer p {
