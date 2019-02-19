@@ -18,7 +18,7 @@
     <% ads.reverse().forEach(function(ad) { %>
       <div class="col-xl-3 col-lg-4 col-sm-6">
       <div class="card mb-3">
-        <div class="card-body p-2 <%= ad.mainCategory === ('keres' || 'Keres') ? 'bg-dark text-light' : 'bg-primary text-light' %>">
+        <div class="card-body p-2 <%= ad.mainCategory === 'Keres' ? 'bg-dark text-light' : 'bg-primary text-light' %>">
           <h5 class="card-title font-weight-bold bg-light text-dark text-center p-2"><%= ad.title %></h5>
           <p class="card-text"><%= ad.description.substring(0, 200) %>...</p>
           <span class="badge badge-light"># <%= ad.mainCategory %></span>
