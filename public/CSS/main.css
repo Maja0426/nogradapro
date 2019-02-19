@@ -13,16 +13,16 @@ body {
 }
 
 .ads-card .card-title {
-  height: 30px;
+  height: 40px;
 }
 
 .card-body {
-  height: 325px;
+  height: 345px;
   transition: .3s ease-in-out;
 }
 
 .card-body img {
-  height: 230px;
+  height: 250px;
 }
 
 .card-footer p {
