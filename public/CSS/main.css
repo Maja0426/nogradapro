@@ -13,7 +13,7 @@ body {
 }
 
 .ads-card .card-title {
-  height: 60px;
+  height: 30px;
 }
 
 .card-body {
@@ -22,7 +22,7 @@ body {
 }
 
 .card-body img {
-  height: 200px;
+  height: 230px;
 }
 
 .card-footer p {
