@@ -49,17 +49,6 @@ router.post('/register', function (req, res) {
   });
 });
 
-// router.get('/auth/facebook', passport.authenticate('facebook', {
-//   scope: ['email']
-// }));
-
-// router.get('/auth/facebook/callback',
-//   passport.authenticate('facebook', {
-//     successRedirect: '/ads',
-//     failureRedirect: '/'
-//   }));
-
-
 router.get('/logout', function (req, res) {
   req.logout();
   req.flash('success', 'Sikeresen kijelentkezett!');

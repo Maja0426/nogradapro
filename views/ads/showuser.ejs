@@ -10,17 +10,18 @@
 <p class="lead text-center"> <%= ads.length %> db.</p>
 <hr class="my-4">
 
-  <div class="row">
+<div class="row">
 
-    <% ads.forEach(function(ad) { %>
-    <div class="col-xl-3 col-lg-4 col-sm-6">
-      <div class="card mb-3">
-        <div class="card-body p-2 <%= ad.mainCategory === 'keres' ? 'bg-dark text-light' : 'bg-primary text-light' %>">
-          <h5 class="card-title font-weight-bold bg-light text-dark text-center p-2">
-            <%= ad.title %>
-          </h5>
-          <p class="card-text">
-            <%= ad.description.substring(0, 200) %>...</p>
+  <% ads.reverse().forEach(function(ad) { %>
+  <div class="col-xl-3 col-lg-4 col-sm-6">
+    <div class="card ads-card mb-3">
+      <div class="card-body p-2 <%= ad.mainCategory === 'Keres' ? 'bg-dark text-light' : 'bg-primary text-light' %>">
+        <h5 class="card-title font-weight-bold bg-light text-dark text-center p-2">
+          <%= ad.title.length > 20 ? ad.title.substring(0,20)+'...' : ad.title %>
+        </h5>
+        <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550505868/Aprohirdetes/no-image.png' : ad.image %>"
+          class="card-img" alt="User photo">
+        <div class="mt-1">
           <span class="badge badge-light">#
             <%= ad.mainCategory %></span>
           <span class="badge badge-light">#
@@ -28,25 +29,26 @@
           <span class="badge badge-light">#
             <%= ad.category %></span>
         </div>
-        <div class="card-footer bg-secondary">
-          <div class="row">
-            <div class="col-6">
-              <p><i class="fas fa-clock"></i>
-                <%= moment(ad.createdAt).format('YYYY.MM.D.') %>
-              </p>
-              <p><i class="fas fa-money-bill-alt"></i>
-                <%= ad.price === '' ? 'Nincs ár' : ad.price %>
-              </p>
-            </div>
-            <div class="col-6">
-              <a class="btn btn btn-dark mt-2" href="/ads/<%= ad._id %>">MEGNÉZEM</a>
-            </div>
+      </div>
+      <div class="card-footer bg-secondary">
+        <div class="row">
+          <div class="col-6">
+            <p><i class="fas fa-clock"></i>
+              <%= moment(ad.createdAt).format('YYYY.MM.D.') %>
+            </p>
+            <p><i class="fas fa-money-bill-alt"></i>
+              <%= ad.price === '' ? 'Nincs ár' : ad.price %>
+            </p>
+          </div>
+          <div class="col-6">
+            <a class="btn btn btn-dark mt-2" href="/ads/<%= ad._id %>">MEGNÉZEM</a>
           </div>
         </div>
       </div>
     </div>
-    <% }) %>
   </div>
+  <% }) %>
+</div>
 
 </div>
 
