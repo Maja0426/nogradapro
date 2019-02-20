@@ -21,12 +21,12 @@ body {
   background: url('https://www.wykop.pl/cdn/c3201142/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
 }
 
-.jumbotron img {
+/* .jumbotron img {
   position: absolute;
   right: 20px;
   top: 20px;
   z-index: 10;
-}
+} */
 
 .ads-card .card-title {
   height: 40px;
@@ -38,7 +38,7 @@ body {
 }
 
 .card-body img {
-  height: 230px;
+  height: 75%;
 }
 
 .card-footer p {
