@@ -16,7 +16,7 @@ var PORT = process.env.PORT || 3000;
 
 app.locals.moment = require('moment');
 
-mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds343985.mlab.com:43985/nogradapro-01', {
+mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds135335.mlab.com:35335/bgyapro-02', {
   useNewUrlParser: true
 });
 mongoose.set('useFindAndModify', false);
