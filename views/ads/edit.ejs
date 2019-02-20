@@ -7,8 +7,8 @@
       <div class="form-row mt-ads">
         <div class="form-group mx-auto">
           <select class="custom-select" name="ads[mainCategory]">
-            <option value="Keres" selected>Keres</option>
-            <option value="Kínál">Kínál</option>
+            <option value="Kínál" selected>Kínál</option>
+            <option value="Keres">Keres</option>
           </select>
         </div>
       </div>
@@ -74,11 +74,18 @@
         </div>
       </div>
 
-      <div class="form-row">
+      <!-- <div class="form-group col-sm-6 mx-auto">
+        <div class="custom-file">
+          <label for="image" class="custom-file-label">Képfeltöltés</label>
+          <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" >
+        </div>
+      </div> -->
+
+      <!-- <div class="form-row">
         <div class="form-group mx-auto">
           <input class="form-control" type="text" name="ads[image]" value="<%=ad.image%>">
         </div>
-      </div>
+      </div> -->
 
       <div class="form-row">
         <textarea rows="5" class="form-control" name="ads[description]" required><%= ad.description %></textarea>
