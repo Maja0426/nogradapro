@@ -141,7 +141,7 @@ router.get('/service', function (req, res) {
 // Categories - Technical
 router.get('/technical', function (req, res) {
   Ads.find({
-    category: 'Műszakicikk'
+    category: 'Műszaki'
   }, function (err, foundAds) {
     if (err) {
       req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
