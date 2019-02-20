@@ -18,7 +18,7 @@ body {
 .jumbotron {
   position: relative;
   margin-top: 2%;
-  background: url('https://www.wykop.pl/cdn/c3201142/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
+  background: url('https://res.cloudinary.com/maja0426/image/upload/v1550666682/Aprohirdetes/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
 }
 
 /* .jumbotron img {
