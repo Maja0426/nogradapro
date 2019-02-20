@@ -70,6 +70,10 @@ app.get('/impressum', function(req, res) {
   res.render('others/impressum');
 });
 
+app.get('/commentpolicy', function(req, res) {
+  res.render('others/commentpolicy');
+})
+
 // 404 ERROR PAGE
 app.get('*', function (req, res) {
   res.render('404');
