@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var flash = require('connect-flash');
+var sslRedirect = require('heroku-ssl-redirect');
 var app = express();
 
 var adsRoutes = require('./routes/ads');
@@ -40,6 +41,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(sslRedirect());
 
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
