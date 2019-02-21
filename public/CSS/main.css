@@ -107,3 +107,6 @@ li[custom-title]:hover:after {
   color: #fff;
 }
 
+.impressum li img {
+  width: 140px;
+}
