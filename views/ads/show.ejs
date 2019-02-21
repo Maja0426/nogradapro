@@ -4,6 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="<%= ad.description.substring(0,159) %>">
+  <meta name="og:title" property="og:title" content="<%= ad.title %>">
+  <meta property="og:url" content="<%= pageUrl %>">
+  <meta property="og:title" content="<%= ad.title %>">
+  <meta property="og:description" content="<%= ad.description %>">
+  <meta property="og:image" content="<%= ad.image %>">
+  <meta property="fb:app_id" content="701536770240682">
+  <meta property="og:type" content="article">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
@@ -34,12 +43,6 @@
     })
   });
 </script>
-  <meta property="og:url" content="<%= pageUrl %>">
-  <meta property="og:title" content="<%= ad.title %>">
-  <meta property="og:description" content="<%= ad.description %>">
-  <meta property="og:image" content="<%= ad.image %>">
-  <meta property="fb:app_id" content="701536770240682">
-  <meta property="og:type" content="article">
 </head>
 
 <body id="pageTop">
@@ -124,9 +127,9 @@
   <div class="container">
 
     <hr class="my-4">
-    <h2 class="text-center">
+    <h1 class="text-center">
       <%= ad.title %>
-    </h2>
+    </h1>
     <h4 class="text-center">
       <b class="text-primary">
         <a href="/user/<%= ad.author.id %>">
