@@ -8,16 +8,16 @@ body {
 }
 
 .show-page, .main-content {
-  min-height: calc(100vh - 500px);
+  min-height: calc(100vh - 560px);
 }
 
 #footer {
-  height: 520px;
+  height: 540px;
 }
 
-.sub-footer img {
+/* .sub-footer img {
   width: 40px;
-}
+} */
 
 .navbar img {
   transition: .1s ease-out;
