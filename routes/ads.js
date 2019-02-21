@@ -30,28 +30,47 @@ cloudinary.config({
 
 // INDEX PAGE, LIST ALL ADS
 router.get('/', function (req, res) {
+   var perPage = 16;
+   var pageQuery = parseInt(req.query.page);
+   var pageNumber = pageQuery ? pageQuery : 1;
+   var noMatch = null;
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-    Ads.find({
-      title: regex
-    }, function (err, allAds) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render('ads/index', {
-          ads: allAds
-        });
-      }
+    Ads.find({title: regex}).skip((perPage*pageNumber)-perPage).limit(perPage).exec(function (err, allAds) {
+      Ads.countDocuments({title: regex}).exec(function(err, count) {
+        if (err) {
+          console.log(err);
+          res.redirect('back');
+        } else {
+          if (allAds.length < 1) {
+            noMatch = "Nem találtam egyező hirdetést, próbáld meg másképp.";
+          }
+          res.render('ads/index', {
+            ads: allAds,
+            current: pageNumber,
+            pages: Math.ceil(count / perPage),
+            noMatch: noMatch,
+            search: req.query.search
+          });
+          }
+      })
     })
   } else {
-    Ads.find({}, function (err, allAds) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.render('ads/index', {
-          ads: allAds
-        });
-      }
+    Ads.find({}).skip((perPage*pageNumber)-perPage).limit(perPage).exec(function (err, allAds) {
+      Ads.countDocuments().exec(function(err, count) {
+        if (err) {
+          console.log(err);
+          } else {
+            res.render('ads/index', {
+              ads: allAds,
+              current: pageNumber,
+              pages: Math.ceil(count / perPage),
+              noMatch: noMatch,
+              search: false
+            });
+          }
+      })
+      
     })
   }
 });
