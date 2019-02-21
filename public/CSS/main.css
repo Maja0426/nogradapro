@@ -7,6 +7,18 @@ body {
   padding-top: 66px;
 }
 
+.show-page, .main-content {
+  min-height: calc(100vh - 500px);
+}
+
+#footer {
+  height: 520px;
+}
+
+.sub-footer img {
+  width: 40px;
+}
+
 .navbar img {
   transition: .1s ease-out;
 }
@@ -110,3 +122,8 @@ li[custom-title]:hover:after {
 .impressum li img {
   width: 140px;
 }
+
+.alert {
+  z-index: 10;
+}
+

@@ -31,6 +31,7 @@ router.get('/register', function (req, res) {
 
 // handling sign up form
 router.post('/register', function (req, res) {
+  if (req.body.password === req.body.samePassword) {
   var newUser = new User({
     username: req.body.username,
     email: req.body.email
@@ -42,11 +43,15 @@ router.post('/register', function (req, res) {
       res.redirect('/register');
     } else {
     passport.authenticate('local')(req, res, function () {
-      req.flash('success', 'Üdvözlet a bgyapro-n ' + regUser.username + '.');
+      req.flash('success', 'Üdvözlet a Nógrád Aprón ' + regUser.username + '.');
       res.redirect('/ads');
     });
   }
   });
+} else {
+  req.flash('error', 'A két jelszó nem egyezik!');
+  res.redirect('/register');
+}
 });
 
 router.get('/logout', function (req, res) {
