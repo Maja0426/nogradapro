@@ -57,7 +57,7 @@ app.use('/', indexRoutes);
 app.use('/ads', adsRoutes);
 app.use('/user', userRoutes);
 
-// OTHERS PAGE - FOOTER
+// OTHERS PAGE - Footer's links, Comment policy, Help
 app.get('/cookies', function(req, res) {
   res.render('others/cooky');
 });
@@ -72,7 +72,11 @@ app.get('/impressum', function(req, res) {
 
 app.get('/commentpolicy', function(req, res) {
   res.render('others/commentpolicy');
-})
+});
+
+app.get('/help', function(req, res) {
+  res.render('others/help');
+});
 
 // 404 ERROR PAGE
 app.get('*', function (req, res) {
