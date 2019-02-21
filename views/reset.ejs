@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+  <link rel="icon" href="/images/nograd-icon.png">
+  <link rel="stylesheet" href="/CSS/main.css">
+  <title>Reset Page Nógrád Apró</title>
+</head>
+
+<body class="bg-light">
+  <main class="wrapper">
+    <div class="text-center">
+  <div class="text-center">
+    <h2 class="mb-5">Új jelszó megadása</h2>
+  </div>
+  <form action="/reset/<%= token %>" method="POST">
+    <div class="form-group col-md-6 mx-auto">
+      <label for="password">Új jelszó</label>
+      <input type="password" class="form-control" id="password" placeholder="Új jelszó" autofocus name="password" required>
+    </div>
+    <div class="form-group col-md-6 mx-auto">
+      <label for="confirm">Jelszó mégegyszer</label>
+      <input type="password" class="form-control" id="confirm" placeholder="Új jelszó mégegyszer" name="confirm" required>
+    </div>
+    <div class="text-center mt-5">
+      <button class="btn btn-primary"><i class="fas fa-check-circle"></i> Jelszó mentése</button>
+      <a class="btn btn-dark" href="/ads"> Kezdőlap</a>
+    </div>
+  </form>
+    </div>
+  </main>
+</body>
+
+</html>

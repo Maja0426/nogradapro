@@ -79,146 +79,234 @@ router.get('/', function (req, res) {
 
 // Sell
 router.get('/buy', function (req, res) {
-  Ads.find({
-    mainCategory: 'Keres'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
+  Ads.find({mainCategory: 'Keres'}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Buy
 router.get('/sell', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     mainCategory: 'Kínál'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Jobs
 router.get('/jobs', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Állás'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Real estate
 router.get('/estate', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Ingatlan'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Service
 router.get('/service', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Szolgáltatás'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Technical
 router.get('/technical', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Műszaki'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Education
 router.get('/education', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Oktatás'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Vehicles
 router.get('/vehicles', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Jármű'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // Categories - Others
 router.get('/other', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
   Ads.find({
     category: 'Egyéb'
-  }, function (err, foundAds) {
-    if (err) {
-      req.flash("error", "Valami gond akadt. Próbáld meg mégegyszer.");
-      return res.redirect("/");
-    } else {
-      res.render('ads/index', {
-        ads: foundAds
-      })
-    }
-  });
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
 });
 
 // NEW ADS PAGE - ADDED NEW AD
