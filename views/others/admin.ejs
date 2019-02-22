@@ -15,8 +15,8 @@
             <li class="list-group-item"><b>Név:</b>
               <%= user.username %></b>
               <form class="float-right ml-3" action="/user/<%= user._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-sm btn-danger">Törlés!</button>
-                <input class="ml-3" type="checkbox" class="form-check-input" required> Biztos
+                <button class="btn btn-sm btn-danger">Felhasználó törlése</button>
+                <input class="ml-3" type="checkbox" class="form-check-input" required>
               </form>
               <a href="/user/<%= user._id %>" class="btn btn-sm btn-info float-right">Hirdetései</a>
               <span class="float-right mr-3"><b>Email: </b><%= user.email %></span>
@@ -40,8 +40,8 @@
                 <%= ad.author.username %>: </b>
               <%= ad.title %>
               <form class="float-right" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-sm btn-danger">Törlés!</button>
-                <input class="ml-2" type="checkbox" class="form-check-input" required> Biztosan törlöm.
+                <button class="btn btn-sm btn-danger">Hirdetés törlése</button>
+                <input class="ml-2" type="checkbox" class="form-check-input" required>
               </form>
               <a href="/ads/<%= ad._id %>" class="btn btn-sm btn-info float-right mr-3">Megnézem</a>
             </li>
