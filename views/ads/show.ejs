@@ -7,7 +7,7 @@
   <meta name="robots" content="index, follow">
   <meta name="og:title" property="og:title" content="<%= ad.title %>">
   <meta name="og:url" property="og:url" content="<%= pageUrl %>">
-  <meta name="og:description" property="og:description "content="<%= ad.description.substring(0,159) %>">
+  <meta name="og:description" property="og:description" content="<%= ad.description.substring(0,159) %>">
   <meta name="og:image" property="og:image" content="<%= ad.image %>">
   <meta property="fb:app_id" content="701536770240682">
   <meta name="og:type" property="og:type" content="article">
@@ -45,7 +45,7 @@
 
 <body id="pageTop">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-    <a class="text-light lead" href="/ads"><img src="/images/nograd.png" style="width:40px"></a><span class="lead text-light ml-2">NÓGRÁD
+    <a class="text-light lead" href="/ads"><img src="/images/nograd.png" alt="nogradapro icon" style="width:40px"></a><span class="lead text-light ml-2">NÓGRÁD
       APRÓ</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -66,8 +66,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="category" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false"><i class="fas fa-map-signs"></i> Kategória</a>
+          <a class="nav-link dropdown-toggle" href="#" id="category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-map-signs"></i> Kategória</a>
           <div class="dropdown-menu" aria-labelledby="category">
             <a class="dropdown-item" href="/ads/jobs"><i class="fas fa-hammer"></i> Állás</a>
             <a class="dropdown-item" href="/ads/estate"><i class="fas fa-building"></i> Ingatlan</a>
@@ -76,6 +75,7 @@
             <a class="dropdown-item" href="/ads/education"><i class="fas fa-university"></i> Oktatás</a>
             <a class="dropdown-item" href="/ads/vehicles"><i class="fas fa-car"></i> Jármű</a>
             <a class="dropdown-item" href="/ads/other"><i class="fas fa-shopping-bag"></i> Egyéb</a>
+          </div>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -146,16 +146,12 @@
           <%= ad.description %>
         </p>
         <ul class="list-group list-group-flush mb-4">
-          <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" ref="tel:<%= ad.phone %>"> 
+          <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:<%= ad.phone %>"> 
               <%= ad.phone === '' ? 'Nincs telefonszám' : ad.phone %></a></li>
-          <li class="list-group-item lead" custom-title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right">
-              <%= ad.city === '' ? 'Nincs település' : ad.city %></span></li>
-          <li class="list-group-item lead" custom-title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span
-              class="float-right">
+          <li class="list-group-item lead" custom-title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right"><%= ad.city === '' ? 'Nincs település' : ad.city %></span></li>
+          <li class="list-group-item lead" custom-title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
               <%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
-          <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span
-              class="float-right">
-              <%= moment(ad.createdAt).format('YYYY. MMMM D.') %></span></li>
+          <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right"><%= moment(ad.createdAt).format('YYYY. MMMM D.') %></span></li>
         </ul>
         <div class="my-4 text-center">
       <!-- Your share button code -->
