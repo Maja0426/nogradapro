@@ -53,6 +53,9 @@
   <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
   <form action="/user/<%= user._id %>?_method=DELETE" method="POST">
     <button class="btn btn-lg btn-danger">Felhasználói fiók törlése</button>
+<div class="form-group mt-3 mb-3">
+  <input type="checkbox" class="form-check-input" id="check1" required>Meggondoltam, törölöm!
+</div>
   </form>
   <% } %>
 </div>
