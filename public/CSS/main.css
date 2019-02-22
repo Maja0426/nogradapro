@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  padding-top: 66px;
+  padding-top: 30px;
 }
 
 .show-page, .main-content {
@@ -31,6 +31,7 @@ body {
   position: relative;
   margin-top: 2%;
   background: url('https://res.cloudinary.com/maja0426/image/upload/v1550666682/Aprohirdetes/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
+  border-radius: 0;
 }
 
 /* .jumbotron img {
