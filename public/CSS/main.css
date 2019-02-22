@@ -30,9 +30,7 @@ body {
 .jumbotron.index{
   position: relative;
   margin-top: 2%;
-  /* background: url('https://res.cloudinary.com/maja0426/image/upload/v1550666682/Aprohirdetes/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover; */
-  background: #efb73e;
-  color: #000;
+  background: url('https://res.cloudinary.com/maja0426/image/upload/v1550666682/Aprohirdetes/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
   border-radius: 0;
 }
 
