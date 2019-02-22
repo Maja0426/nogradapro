@@ -19,8 +19,9 @@ body {
   width: 40px;
 } */
 
-.navbar img {
-  transition: .1s ease-out;
+.navbar img,
+.ads-card img {
+  transition: .2s ease-out;
 }
 
 .navbar img:hover {
@@ -32,6 +33,10 @@ body {
   margin-top: 2%;
   background: url('https://res.cloudinary.com/maja0426/image/upload/v1550666682/Aprohirdetes/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
   border-radius: 0;
+}
+
+.ads-card img:hover {
+  opacity: .5;
 }
 
 /* .jumbotron img {

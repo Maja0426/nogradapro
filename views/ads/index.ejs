@@ -24,8 +24,8 @@
           <h5 class="card-title font-weight-bold bg-light text-dark text-center p-2">
             <%= ad.title.length > 22 ? ad.title.substring(0,22)+'...' : ad.title %>
           </h5>
-          <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
-            class="card-img" alt="User photo">
+          <a href="/ads/<%= ad._id %>"><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
+            class="card-img" alt="User photo"></a>
           <div class="mt-1">
             <span class="badge badge-light">#
               <%= ad.mainCategory %></span>
