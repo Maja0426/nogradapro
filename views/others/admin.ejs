@@ -9,7 +9,7 @@
         <%= users.length %>
       </h5>
       <div class="row">
-        <div class="col-6">
+        <div class="col-12">
           <ul class="list-group-flush">
             <% users.forEach(function(user) { %>
             <li class="list-group-item"><b>Név:</b>
@@ -17,20 +17,14 @@
               <form class="float-right ml-3" action="/user/<%= user._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-sm btn-danger">Törlés!</button>
                 <input class="ml-3" type="checkbox" class="form-check-input" required> Biztos
-              </form><a href="/user/<%= user._id %>" class="btn btn-sm btn-info float-right">Hirdetései</a>
+              </form>
+              <a href="/user/<%= user._id %>" class="btn btn-sm btn-info float-right">Hirdetései</a>
+              <span class="float-right mr-3"><b>Email: </b><%= user.email %></span>
             </li>
             <% }) %>
           </ul>
         </div>
-        <div class="col-6">
-          <ul class="list-group-flush">
-            <% users.forEach(function(user) { %>
-            <li class="list-group-item"><b>Email:</b>
-              <%= user.email %></b>
-            </li>
-            <% }) %>
-          </ul>
-        </div>
+      
       </div>
 
     </div>
@@ -39,29 +33,22 @@
         <%= ads.length %>
       </h5>
       <div class="row">
-        <div class="col-6">
+        <div class="col-12">
           <ul class="list-group-flush">
             <% ads.forEach(function(ad) { %>
             <li class="list-group-item"><b>
-                <%= ad.author.username %>: </b><small class="">
-                <%= ad.title %></small>
+                <%= ad.author.username %>: </b>
+              <%= ad.title %>
               <form class="float-right" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-sm btn-danger">Törlés!</button>
-                <input class="ml-3" type="checkbox" class="form-check-input" required> Biztos
+                <input class="ml-2" type="checkbox" class="form-check-input" required> Biztosan törlöm.
               </form>
+              <a href="/ads/<%= ad._id %>" class="btn btn-sm btn-info float-right mr-3">Megnézem</a>
             </li>
             <% }) %>
           </ul>
         </div>
-        <div class="col-6">
-          <ul class="list-group-flush">
-            <% ads.forEach(function(ad) { %>
-            <li class="list-group-item"><b>Szöveg: </b><small class="">
-                <%= ad.description.substring(0,70) %>...</small>
-            </li>
-            <% }) %>
-          </ul>
-        </div>
+
       </div>
     </div>
 
