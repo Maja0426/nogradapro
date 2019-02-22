@@ -79,9 +79,11 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <li>
         <form class="form-inline my-xl-0" action="/ads" method="GET">
           <input class="form-control mr-sm-2" type="text" name="search" placeholder="Keresés">
         </form>
+        </li>
         <% if (!currentUser) { %>
         <li class="nav-item">
           <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i> Bejelentkezés</a>
