@@ -33,7 +33,15 @@ body {
   margin-top: 2%;
   background: url('https://res.cloudinary.com/maja0426/image/upload/v1550666682/Aprohirdetes/comment_BsTE7MWbCz0L3vXN9yhUQvwRBItpel89.gif') no-repeat 50% center/cover;
   border-radius: 0;
-  height: calc(100vh - 48px);
+}
+
+.jumbotron.landing{
+  margin: 0;
+  padding: 0;
+  background: url('/images/jumbotron3.jpg') no-repeat 70% center/cover;
+  color: #000;
+  border-radius: 0;
+  height: 100vh; 
 }
 
 .ads-card img:hover {
