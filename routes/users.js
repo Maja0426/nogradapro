@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var Ads = require('../models/ad');
 var User = require('../models/user');
+var middleware = require('../middleware');
+
+
 
 // SHOW USERS ROUTE
 router.get("/:id", function (req, res) {
@@ -20,6 +23,20 @@ router.get("/:id", function (req, res) {
         ads: ads
       });
     });
+  })
+});
+
+// DELETE PAGE
+router.delete('/:id', middleware.checkProfile, function (req, res) {
+  User.findByIdAndRemove(req.params.id, function (err) {
+    if (err) {
+      req.flash('error', 'Valami hiba történt. Próbálja újra.');
+      res.redirect('/ads');
+      console.log(err);
+    } else {
+      req.flash('success', 'Felhasználó törölve!');
+      res.redirect('/ads');
+    }
   })
 });
 

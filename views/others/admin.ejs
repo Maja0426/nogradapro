@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+
+<div class="container-fluid main-content">
+
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h5 class="text-center font-weight-bold">Regisztrált felhasználók: <%= users.length %></h5>
+      <div class="row">
+        <div class="col-6">
+          <ul class="list-group-flush">
+        <% users.forEach(function(user) { %>
+        <li class="list-group-item"><b>Név:</b> <%= user.username %></b><a href="#" class="btn btn-sm btn-danger float-right ml-3">Töröl</a><a href="/user/<%= user.id %>" class="btn btn-sm btn-info float-right">Hirdetései</a>
+        </li>
+        <% }) %>
+      </ul>
+        </div>
+        <div class="col-6">
+          <ul class="list-group-flush">
+        <% users.forEach(function(user) { %>
+        <li class="list-group-item"><b>Email:</b> <%= user.email %></b>
+        </li>
+        <% }) %>
+      </ul>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-md-12 mt-4">
+      <h5 class="text-center font-weight-bold">Hirdetések: <%= ads.length %></h5>
+      <div class="row">
+      <div class="col-6">
+        <ul class="list-group-flush">
+        <% ads.forEach(function(ad) { %>
+        <li class="list-group-item"><b><%= ad.author.username %>: </b><small class=""><%= ad.title %></small><a href="#" class="btn btn-sm btn-danger float-right">Töröl</a>
+        </li>
+        <% }) %>
+      </ul>
+      </div>
+      <div class="col-6">
+        <ul class="list-group-flush">
+        <% ads.forEach(function(ad) { %>
+        <li class="list-group-item"><b>Szöveg: </b><small class=""><%= ad.description.substring(0,70) %>...</small>
+        </li>
+        <% }) %>
+      </ul>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+</div>
+
+<% include ../partials/footer %>

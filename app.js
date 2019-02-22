@@ -6,6 +6,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var flash = require('connect-flash');
 var sslRedirect = require('heroku-ssl-redirect');
+var middleware = require('./middleware');
 var app = express();
 
 var adsRoutes = require('./routes/ads');
@@ -76,6 +77,10 @@ app.get('/commentpolicy', function(req, res) {
 
 app.get('/help', function(req, res) {
   res.render('others/help');
+});
+
+app.get('/admin', middleware.checkAdmin, middleware.checkAllAds, middleware.checkAllUser, function (req, res) {
+  res.render('others/admin');
 });
 
 // 404 ERROR PAGE

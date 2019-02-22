@@ -77,6 +77,11 @@
             <a class="dropdown-item" href="/ads/other"><i class="fas fa-shopping-bag"></i> Egyéb</a>
           </div>
         </li>
+        <% if (currentUser && currentUser.isAdmin) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Admin page</a>
+        </li>
+        <% } %>
       </ul>
       <ul class="navbar-nav ml-auto">
         <li>
@@ -147,7 +152,7 @@
         <p class="lead mt-3 mb-4">
           <%= ad.description %>
         </p>
-        <ul class="list-group list-group-flush mb-4">
+        <ul class="list-group-flush mb-4">
           <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:<%= ad.phone %>"> 
               <%= ad.phone === '' ? 'Nincs telefonszám' : ad.phone %></a></li>
           <li class="list-group-item lead" custom-title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right"><%= ad.city === '' ? 'Nincs település' : ad.city %></span></li>
@@ -168,7 +173,7 @@
       </div>
     </div>
     <div class="btn-wrapper col-12 mx-auto text-center">
-      <% if(currentUser && ad.author.id.equals(currentUser._id)) { %>
+      <% if(currentUser && ad.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
       <a href="/ads/<%= ad._id %>/edit" class="btn btn-primary">Szerkeszt</a>
       <form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
         <button class="btn btn-outline-danger my-2">Törlés!</button>

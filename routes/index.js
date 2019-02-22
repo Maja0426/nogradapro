@@ -39,6 +39,9 @@ router.post('/register', function (req, res) {
     username: req.body.username,
     email: req.body.email
   });
+  if (req.body.username === 'Admin') {
+    newUser.isAdmin = true;
+  };
   User.register(newUser, req.body.password, function (err, regUser) {
     if (err) {
       req.flash('error', err.message);
