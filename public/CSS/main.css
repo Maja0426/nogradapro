@@ -59,9 +59,12 @@ body {
   opacity: .5;
 }
 
+.card {
+  border: none;
+}
+
 .ads-card .card-title {
   height: 40px;
-  border-radius: 50px;
 }
 
 .card-body {
