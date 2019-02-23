@@ -23,17 +23,13 @@ body {
   min-height: calc(100vh - 60px);
 }
 
-.container, .continer-fluid {
+.container, .container-fluid {
   margin-top: 56px;
 }
 
 #footer {
   height: 590px;
 }
-
-/* .sub-footer img {
-  width: 40px;
-} */
 
 .navbar img,
 .ads-card img {
@@ -97,20 +93,6 @@ body {
   text-decoration: none;
 }
 
-/* .card-body img {
-  height: 100%;
-} */
-
-
-/* .card {
-  height: 465px;
-} */
-
-.card-footer p {
-  margin-bottom: 3px;
-  color: #000;
-}
-
 .wrapper {
   position: absolute;
   top: 50%;
@@ -133,18 +115,6 @@ body {
   display: inline !important;
   margin: 0 4px;
 }
-
-/* custom title element */
-/* .list-group-flush li[custom-title]:hover:after {
-  content: attr(custom-title);
-  background: #772953;
-  color: #e9ecef;
-  padding: 2px 4px;
-  position: absolute;
-  left: 15%;
-  top: 20%;
-  border-radius: 5px;
-} */
 
 .messages {
   top: 10%;
