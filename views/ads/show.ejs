@@ -148,17 +148,17 @@
         <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
           class="img-fluid rounded" alt="User's picture">
       </div>
-      <div class="col-md-6 mx-auto">
+      <div class="col-md-6">
         <p class="lead mt-3 mb-4">
           <%= ad.description %>
         </p>
-        <ul class="list-group-flush mb-4">
-          <li class="list-group-item lead" custom-title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:<%= ad.phone %>"> 
+        <ul class="list-group mb-4">
+          <li class="list-group-item" title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:<%= ad.phone %>"> 
               <%= ad.phone === '' ? 'Nincs telefonszám' : ad.phone %></a></li>
-          <li class="list-group-item lead" custom-title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right"><%= ad.city === '' ? 'Nincs település' : ad.city %></span></li>
-          <li class="list-group-item lead" custom-title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
+          <li class="list-group-item" title="Hirdetés helye"><i class="fas fa-city"></i><span class="float-right"><%= ad.city === '' ? 'Nincs település' : ad.city %></span></li>
+          <li class="list-group-item" title="Vételár/egyéb ár"><i class="fas fa-money-bill-alt"></i><span class="float-right">
               <%= ad.price === '' ? 'Nincs ár' : ad.price +' Ft.'%></span></li>
-          <li class="list-group-item lead" custom-title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right"><%= moment(ad.createdAt).format('YYYY. MMMM D.') %></span></li>
+          <li class="list-group-item" title="Hirdetés feladásának ideje"><i class="fas fa-clock"></i><span class="float-right"><%= moment(ad.createdAt).format('YYYY. MMMM D.') %></span></li>
         </ul>
         <div class="my-4 text-center">
       <!-- Your share button code -->

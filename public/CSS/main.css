@@ -125,7 +125,7 @@ body {
 }
 
 /* custom title element */
-.list-group-flush li[custom-title]:hover:after {
+/* .list-group-flush li[custom-title]:hover:after {
   content: attr(custom-title);
   background: #772953;
   color: #e9ecef;
@@ -134,7 +134,7 @@ body {
   left: 15%;
   top: 20%;
   border-radius: 5px;
-}
+} */
 
 .messages {
   top: 10%;
