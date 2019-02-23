@@ -64,13 +64,17 @@ body {
 }
 
 .card-body {
-  height: 330px;
+  max-height: 430px;
   transition: .3s ease-in-out;
 }
 
-.card-body img {
+/* .card-body img {
   height: 75%;
-}
+} */
+
+/* .card {
+  height: 465px;
+} */
 
 .card-footer p {
   margin-bottom: 3px;
