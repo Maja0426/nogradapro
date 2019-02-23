@@ -24,13 +24,13 @@
         <a href="/ads/<%= ad._id %>"><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
             class="card-img" alt="User photo"></a>
         <div class="mt-2 mx-2">
-          <span class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning text-black' : 'badge-black text-warning'%>">#
-            <%= ad.mainCategory %></span>
-          <span class="badge badge-dark">#
-            <%= ad.category %></span>
-          <span class="badge badge-primary">#
-            <%= ad.city %></span>
-        </div>
+            <a href="/ads/mainCategory/<%= ad.mainCategory %>"><span class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning text-black' : 'badge-black text-warning'%>">#
+              <%= ad.mainCategory %></span></a>
+              <a href="/ads/category/<%= ad.category %>"><span class="badge badge-dark">#
+                <%= ad.category %></span></a>
+            <a href="/ads/city/<%= ad.city %>"><span class="badge badge-primary">#
+              <%= ad.city %></span></a>
+          </div>
       </div>
       <div class="row">
         <div class="col-12 py-0">
