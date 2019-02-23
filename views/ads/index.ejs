@@ -23,23 +23,24 @@
           <a href="/ads/<%= ad._id %>"><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
               class="card-img" alt="User photo"></a>
           <div class="mt-1">
-            <span class="badge badge-dark">#
+            <span class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning text-black' : 'badge-black text-warning'%>">#
               <%= ad.mainCategory %></span>
             <span class="badge badge-dark">#
               <%= ad.city %></span>
-            <span class="badge badge-dark">#
+            <span class="badge badge-success">#
               <%= ad.category %></span>
           </div>
         </div>
         <div class="row">
-          <div class="col-12 py-0 mx-2">
-            <p><i class="fas fa-clock"></i>
-              <%= moment(ad.createdAt).format('YYYY.MM.D.') %><span class=""><i class="fas fa-money-bill-alt ml-5"></i> <%= ad.price === '' ? 'Nincs ár' : ad.price %></span>
+          <div class="col-12 py-0">
+            <p class="ml-2"><i class="fas fa-clock"></i>
+              <%= moment(ad.createdAt).format('YYYY.MM.D.') %><span class="float-right mr-2"><i class="fas fa-money-bill-alt ml-5"></i>
+              <%= ad.price === '' ? 'Nincs ár' : ad.price %></span>
             </p>
+
           </div>
 
         </div>
-        <hr class="">
       </div>
     </div>
     <% }) %>
