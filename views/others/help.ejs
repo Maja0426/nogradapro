@@ -67,10 +67,16 @@ text-shadow: none;
           <a class="nav-link" href="#ads">Hirdetések</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#search">Keresés a hirdetések között</a>
+          <a class="nav-link" href="#search">Keresés</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#social">Megosztás</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#delete-profile">Profil törlése</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#comments">Kommentek</a>
         </li>
       </ul>
     </div>
@@ -104,7 +110,7 @@ text-shadow: none;
         mobiltelefonon és tableten is jól használható, egyértelmű legyen. Ne legyen akadálya annak ha mobilról akarsz
         hirdetést feladni, egyszerűen lépj be, írd meg a hirdetés szövegét, készíts az eladni szándékozott dologról egy
         képet, és add fel a hirdetést! Ilyen egyszerű. Ráadásul biztosan sok ismerősöd van közösségi oldalakon, így egy
-        kattintással a már elkészült hirdetésed megoszthatod akár facebook-on, akár twitteren is.</p>
+        kattintással a már elkészült hirdetésed <a href="#social">megoszthatod</a> akár facebook-on, akár twitteren is.</p>
     </section>
 
     <section id="register">
@@ -154,7 +160,7 @@ text-shadow: none;
       <hr>
       <p class="lead">A főképernyőn sorakoznak a hirdetések kártyái. Egy sorban négy kártya, egy oldalon négy sor, azaz egyszerre 16 hirdetési kártya található egy oldalon. A többi kártya megtekintéséhez görgessünk a kártyák utolsó sorához, és az ott látható lapozó menüvel továbbmehetünk a következő oldalra.</p>
       <p class="lead">Minden kártya tartalmaz egy címsávot, ahol a hirdetés címét láthatjuk 50 karakter hosszúságban. Ez alatt található a hirdetés képe. A kép alatt az ún. <span class="badge badge-warning"># címkék</span> láthatóak. Itt látjuk hogy a hirdetés feladója keres vagy kínál, látjuk a hirdetés feladásának helyét, valamint megjelenik a kategória pl.: <span class="badge badge-dark"># jármű</span> is. Ezek a címkék is kattinthatóak, kattintásra az adott címke típusa szerint szűri a program a hirdetéseket. Pl. <span class="badge badge-primary"># Balassagyarmat</span> címkére kattintva az összes balassagyarmati hirdetést listázza az oldal. A címkék alatt láthatjuk hogy mikor lett feladva a hirdetés, illetve hogy mekkora összeget jelölt meg a hirdetés feladója a hirdetésében.</p>
-      <p class="lead">Ha a hirdetés címére, vagy a hirdetés képére kattintunk, akkor megnyílik a részletes hirdetés nézeti oldal. Itt láthatjuk magát a hirdetést. A teljes címet, a képet nagyobb méretben, a hirdetés szövegét, illetve  a hirdetés adatait is. Itt tudjuk a hirdetést megosztani a facebook vagy twitter hírfolyamunkon is, a megfelelő gombra kattintva. Ha saját hirdetésünkbe léptünk be, akkor módunkban áll szerkeszteni illetve törölni a hirdetést.</p>
+      <p class="lead">Ha a hirdetés címére, vagy a hirdetés képére kattintunk, akkor megnyílik a részletes hirdetés nézeti oldal. Itt láthatjuk magát a hirdetést. A teljes címet, a képet nagyobb méretben, a hirdetés szövegét, illetve  a hirdetés adatait is. Itt tudjuk a hirdetést megosztani a facebook vagy twitter hírfolyamunkon is, a megfelelő gombra kattintva. Ha saját hirdetésünkbe léptünk be, akkor módunkban áll szerkeszteni illetve törölni a hirdetést. Lejjeb pedig a <a href="#comments">komment</a> szekció helyezkedik el.</p>
     </section>
 
     <section id="search">
@@ -169,6 +175,20 @@ text-shadow: none;
       <p class="lead">Miért ne használnád ki a közösségi oldalakat? Biztosan sok ismerősöd, követőd van facebook-on és/vagy twitteren. Elég egyszer megírnod a hirdetésedet, majd azt egyetlen gombnyomással több száz ember számára elérhetővé teheted. Ha valakinek akár a facebook-on, akár a twitteren felkelti az érdeklődését a hirdetésed, azt megkattintva rögtön a nogradapro.com-on elhelyezett hirdetésedre ugorhat.</p>
       <p class="lead">A <btn class="btn btn-sm btn-info">facebook</btn> megosztás gombra kattintva az aktuális hirdetést meg tudjuk osztani a Facebook hírfolyamunkon. Ez a lehetőség nem csak a regisztrált felhasználóknak, hanem bármely az oldalt meglátogató személynek lehetőségére áll. A hírfolyamunkon meg fog jelenni egy kártya, benne a hirdetésünk képe, a hirdetési oldal címe, a hirdetésünk egy rövid leírással. Ha a  kártyára kattintunk akkor a hirdetési oldal a hirdetésére fog vinni, ahol a teljes hirdetést elolvashatjuk ill. megnézhetjük.</p>
       <p class="lead">A <btn class="btn btn-sm btn-info">twitteren</btn> történő megosztáshoz a Tweet gombra kattintva az aktuális hirdetést a twitter hírfolyamunkon tudjuk megjelentetni. A facebookos megoldáshoz hasonlóan fog megjelenni a hirdetés a hírfolyamban. Fontos még megjegyezni hogy a Twitter hirfolyamban fel lesz tüntetve hashtaggel ( # ) a hirdetés helye illetve a hirdetés kategóriája, ami a twittert használóknak segít abban hogy rátaláljanak az általunk hirdetett termékre.</p>
+    </section>
+
+    <section id="delete-profile">
+      <h2><i class="fas fa-eraser"></i> Profil törlése</h2>
+      <hr>
+      <p class="lead">Ha beléptünk a felhasználónevünkkel az oldalra, a felső menüsorban láthatóvá válik egy üdvözlő szöveg a profilnevünkkel. Ide kattintva láthatóvá válik egy helyen az összes hirdetésünk. A kártyák alatt található egy <button class="btn btn-sm btn-danger">Felhasználói fiók törlése</button> gomb. Ha az alatta lévő jelölőnégyzetet kipipáljuk, akkor a gombra való kattintást követően a fiókunk törlődik.</p>
+      <h4 class=""><span class="text-danger">FONTOS!! Ha a hirdetéseinket korábban nem töröltük, akkor a profilunk törlése után ezt már nem tudjuk megtenni!</span> </h4>
+      <p class="lead">Ezért előbb a hirdetéseinket töröljük, majd utána a profilunkat, Hacsak nem szándékosan marad a hirdetés a profil törlése után. Amennyiben a profil törlésre került, és mégis szeretnél hirdetést törölni ez után, úgy vedd fel az adminisztrátorral a kapcsolatot a <a href="email:develop.tmsmajoros@gmail.com">develop.tmsmajoros@gmail.com</a> email címen.</p>
+    </section>
+
+    <section id="comments">
+      <h2><i class="far fa-comment"></i> Kommentek</h2>
+      <hr>
+      <p class="lead">Minden hirdetés alatt adott a lehetőség a kommentálásra. A legnépszerűbb és legismertebb rendszert, a Disqus-t használjuk erre a célra. Miért a Disqus? Regisztrálhatunk/beléphetünk Facebook, Twitter, Google vagy Disqus fiókkal is, ha pedig engedélyezett, akkor vendégként is posztolhatunk. Van lehetőség képek beillesztésére is, amennyiben a mérete nem nagyobb mint 2 MB. Minden hozzászólást megoszthatunk és szavazhatunk is rájuk. Kommentelés előtt a moderelási (komment) szabályokat olvsad el!</p>
     </section>
 
 
