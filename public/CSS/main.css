@@ -15,7 +15,7 @@ body {
   padding: 6px;
 }
 
-.badge-black {
+.badge-black, .bg-black {
   background: #000;
 }
 
@@ -73,10 +73,16 @@ body {
 
 .card {
   border: none;
+  background: #e9ecef;
+  /* box-shadow: 5px 5px 5px #333; */
 }
 
 .ads-card .card-title {
   height: 65px;
+}
+
+.ads-card img {
+  border-radius: 0;
 }
 
 .card-body {
