@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/journal/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
     crossorigin="anonymous">
   <link rel="icon" href="/images/nograd-icon.png">
@@ -42,7 +42,7 @@ text-shadow: none;
 </head>
 
 <body id="pageTop">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="text-light lead mr-3" href="/ads"><img src="/images/nograd.png" alt="nogradapro icon" style="width:40px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -69,6 +69,9 @@ text-shadow: none;
         <li class="nav-item">
           <a class="nav-link" href="#register">Regisztráció</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#social">Megosztás</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -87,7 +90,7 @@ text-shadow: none;
   <div class="container help">
 
     <section id="whatis">
-      <h2>Az oldalról</h2>
+      <h2><i class="fas fa-desktop"></i> Az oldalról</h2>
       <hr>
       <p class="lead">Üdvözöllek a nogradapro.com hirdetési oldalon. Ez az oldal azért jött létre, mert nem találtam
         olyan egyszerű, szimpla hirdetési oldalt, ahol alapvetően Nógrád megyéből, Nógrád megyében élők
@@ -105,7 +108,7 @@ text-shadow: none;
     </section>
 
     <section id="base">
-      <h2>Az alapok</h2>
+      <h2><i class="fas fa-scroll"></i> Az alapok</h2>
       <hr>
       <p class="lead">Ahhoz hogy keress a hirdetések között, megoszd ismerőseid, barátaid, üzlettársaid hirdetéseit,
         vagy kommentáld a hirdetéseked, nem szükséges regisztrálnod. Azonban ha hirdetéseket is szeretnél feladni,
@@ -121,7 +124,7 @@ text-shadow: none;
     </section>
 
     <section id="ads-on">
-      <h2>Hirdetés feladása</h2>
+      <h2><i class="fas fa-edit"></i> Hirdetés feladása</h2>
       <hr>
       <p class="lead">Hirdetést feladni csak regisztrált és bejelentkezett felhasználó tud. A <span class="badge badge-primary"><i
             class="fas fa-pencil-alt"></i> Hirdetésfeladás</span> menüpontra kattintva megjelenik egy űrlap. Itt
@@ -136,11 +139,14 @@ text-shadow: none;
       <p class="lead">Ezt követi a hirdetni kívánt termék ára, Ft-ban. Bármilyen, neked szimpatikus formátumban
         beírhatod az összeget, azonban a "Ft" jelölést hagyd el, azt a program automatikusan az összeg után fogja
         illeszteni a hirdetésben.</p>
-      <p class="lead">A következő menü a településnév.</p>
+      <p class="lead">A következő mező a településnév. Itt adjuk meg a hirdetés helyét. Ez azért fontos, mert megkönnyíti hogy a vevő és az eladó egymásra találjon, mivel a programban lehetőség van a hirdetéseket településnév szerint is szűrni. Valamint ha twitteren megosztjuk a hirdetést, a településnév hashtaggel (<b> # </b>) ellátva bekerül a hírfolyamba, így a twitteren is könnyebben megtalálhatnak.</p>
+      <p class="lead">Lejjebb a telefonszámod tudod megadni. Ez fontos, hogy az, akinek felkeltetted a figyelmét, el is érjen. A telefonszámot lehetőleg a kijelzőn megjelenő formátumban adjuk meg, ekor ugyanis ha valaki mobilon böngészi a hirdetéseket, egyszerűen a telefonszámodra kattintva felhívhat.</p>
+        <p class="lead">
+        Ezt követően válasszuk ki a hirdetésünk kategóriáját ami lehet állás ingatlan szolgáltatás műszaki cikk oktatás jármű egyéb Majd ezt követően alkalmunk van arra hogy fel töltsünk egy képet a rendszerbe mely Egyébként nem kötelező Ezt követően pedig írjuk meg hirdetésünk szövegét egy pár sorban aztán kattintsunk a hirdetés feladása menüpontra</p>
     </section>
 
     <section id="search">
-      <h2>Keresés a hirdetések között</h2>
+      <h2><i class="fas fa-search"></i> Keresés a hirdetések között</h2>
       <hr>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla doloremque a velit sed repellat
         iusto corrupti voluptatibus repudiandae corporis nobis quaerat cupiditate similique laboriosam, quia, adipisci
@@ -148,11 +154,19 @@ text-shadow: none;
     </section>
 
     <section id="register">
-      <h2>Regisztráció</h2>
+      <h2><i class="fas fa-user-plus"></i> Regisztráció</h2>
       <hr>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla doloremque a velit sed repellat
         iusto corrupti voluptatibus repudiandae corporis nobis quaerat cupiditate similique laboriosam, quia, adipisci
         cumque ad sint tempore consectetur, expedita tempora animi blanditiis! Quo ratione inventore error deleniti.</p>
+    </section>
+
+    <section id="social">
+      <h2><i class="fab fa-facebook-square"></i> Hirdetés megosztása közösségi oldalakon</h2>
+      <hr>
+      <p class="lead">Miért ne használnád ki a közösségi oldalakat? Biztosan sok ismerősöd, követőd van facebook-on és/vagy twitteren. Elég egyszer megírnod a hirdetésedet, majd azt egyetlen gombnyomással több száz ember számára elérhetővé teheted. Ha valakinek akár a facebook-on, akár a twitteren felkelti az érdeklődését a hirdetésed, azt megkattintva rögtön a nogradapro.com-on elhelyezett hirdetésedre ugorhat.</p>
+      <p class="lead">A <span class="text-info">facebook</span> megosztás gombra kattintva az aktuális hirdetést meg tudjuk osztani a Facebook hírfolyamunkon. Ez a lehetőség nem csak a regisztrált felhasználóknak, hanem bármely az oldalt meglátogató személynek lehetőségére áll. A hírfolyamunkon meg fog jelenni egy kártya, benne a hirdetésünk képe, a hirdetési oldal címe, a hirdetésünk egy rövid leírással. Ha a  kártyára kattintunk akkor a hirdetési oldal a hirdetésére fog vinni, ahol a teljes hirdetést elolvashatjuk ill. megnézhetjük.</p>
+      <p class="lead">A <span class="text-info">twitteren</span> történő megosztáshoz a Tweet gombra kattintva az aktuális hirdetést a twitter hírfolyamunkon tudjuk megjelentetni. A facebookos megoldáshoz hasonlóan fog megjelenni a hirdetés a hírfolyamban. Fontos még megjegyezni hogy a Twitter hirfolyamban fel lesz tüntetve hashtaggel ( # ) a hirdetés helye illetve a hirdetés kategóriája, ami a twittert használóknak segít abban hogy rátaláljanak az általunk hirdetett termékre.</p>
     </section>
 
 
