@@ -52,7 +52,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-
 // ROUTES CONFIG
 app.use('/', indexRoutes);
 app.use('/ads', adsRoutes);
