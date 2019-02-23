@@ -61,16 +61,18 @@ body {
 
 .ads-card .card-title {
   height: 40px;
+  border-radius: 50px;
 }
 
 .card-body {
-  max-height: 430px;
+  max-height: 470px;
   transition: .3s ease-in-out;
 }
 
 /* .card-body img {
-  height: 75%;
+  height: 100%;
 } */
+
 
 /* .card {
   height: 465px;
