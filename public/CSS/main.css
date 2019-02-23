@@ -42,7 +42,8 @@ body {
   height: 590px;
 }
 
-.navbar img {
+.navbar img,
+.ads-card img {
   transition: .2s ease-out;
 }
 
@@ -77,40 +78,14 @@ body {
   text-shadow: none;
   }
 
-
-/* Index Page Card image hover effect */
-.image-wrapper {
-  position: relative;
-}
-
-.card.img {
-  opacity: 1;
-  backface-visibility: hidden;
-  transition: .5s ease;
-}
-
-.overlay {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.image-wrapper:hover .overlay {
-  opacity: 1;
-}
-
-.image-wrapper:hover .card-img {
-  opacity: 0.3;
+.ads-card img:hover {
+  opacity: .5;
 }
 
 .card {
   border: none;
   background: #e9ecef;
+  /* box-shadow: 5px 5px 5px #333; */
 }
 
 .ads-card .card-title {
