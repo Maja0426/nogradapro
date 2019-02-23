@@ -77,6 +77,82 @@ router.get('/', function (req, res) {
 
 // List by Categories
 
+// BADGES - MAINCATEGORY (BUY OR SELL)
+router.get('/mainCategory/:id', function(req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
+  Ads.find({mainCategory: req.params.id}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
+})
+
+// BADGES - CATEGORY (TYPE)
+router.get('/category/:id', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
+  Ads.find({
+    category: req.params.id
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
+})
+
+// BADGES - CITIES 
+router.get('/city/:id', function (req, res) {
+  var perPage = 16;
+  var pageQuery = parseInt(req.query.page);
+  var pageNumber = pageQuery ? pageQuery : 1;
+  var noMatch = null;
+  Ads.find({
+    city: req.params.id
+  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.countDocuments().exec(function (err, count) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render('ads/index', {
+          ads: allAds,
+          current: pageNumber,
+          pages: Math.ceil(count / perPage),
+          noMatch: noMatch,
+          search: false
+        });
+      }
+    })
+
+  })
+})
+
 // Sell
 router.get('/buy', function (req, res) {
   var perPage = 16;
