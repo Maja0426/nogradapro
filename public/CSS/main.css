@@ -68,7 +68,6 @@ body {
 }
 
 .card-body {
-  max-height: 470px;
   transition: .3s ease-in-out;
 }
 
