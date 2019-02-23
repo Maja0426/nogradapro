@@ -17,9 +17,9 @@
     <div class="col-xl-3 col-lg-4 col-sm-6">
       <div class="card ads-card mb-3">
         <div class="card-body p-2">
-          <h5 class="card-title font-weight-bold bg-dark text-light text-center p-2">
-            <%= ad.title.length > 22 ? ad.title.substring(0,22)+'...' : ad.title %>
-          </h5>
+          <a href="/ads/<%= ad._id %>"><h5 class="card-title font-weight-bold bg-dark text-light text-center p-2">
+            <%= ad.title.length > 45 ? ad.title.substring(0,45)+'...' : ad.title %>
+          </h5></a>
           <a href="/ads/<%= ad._id %>"><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
               class="card-img" alt="User photo"></a>
           <div class="mt-1">
@@ -36,10 +36,10 @@
             <p><i class="fas fa-clock"></i>
               <%= moment(ad.createdAt).format('YYYY.MM.D.') %><span class=""><i class="fas fa-money-bill-alt ml-5"></i> <%= ad.price === '' ? 'Nincs ár' : ad.price %></span>
             </p>
-
           </div>
 
         </div>
+        <hr class="">
       </div>
     </div>
     <% }) %>

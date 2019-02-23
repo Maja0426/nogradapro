@@ -64,12 +64,16 @@ body {
 }
 
 .ads-card .card-title {
-  height: 40px;
+  height: 65px;
 }
 
 .card-body {
   max-height: 470px;
   transition: .3s ease-in-out;
+}
+
+.card-body a {
+  text-decoration: none;
 }
 
 /* .card-body img {
