@@ -23,6 +23,10 @@ body {
   min-height: calc(100vh - 60px);
 }
 
+.container, .continer-fluid {
+  margin-top: 56px;
+}
+
 #footer {
   height: 590px;
 }
