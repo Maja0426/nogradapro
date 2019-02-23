@@ -75,8 +75,6 @@ router.get('/', function (req, res) {
   }
 });
 
-// List by Categories
-
 // BADGES - MAINCATEGORY (BUY OR SELL)
 router.get('/mainCategory/:id', function(req, res) {
   var perPage = 16;
