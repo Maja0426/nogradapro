@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  padding-top: 30px;
+  padding-top: 60px;
 }
 
 .text-black {
@@ -13,6 +13,17 @@ body {
 
 .badge {
   padding: 6px;
+}
+
+.menu-badges .badge {
+  margin-right: 10px;
+  margin-bottom: 3px;
+  padding: 5px 10px;
+}
+
+.menu-badges .badge:hover {
+  background: #000;
+  color: #fff;
 }
 
 .badge-black, .bg-black {
