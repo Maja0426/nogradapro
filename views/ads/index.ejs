@@ -33,8 +33,8 @@
         </div>
         <div class="row">
           <div class="col-12 py-0">
-            <p class="ml-2"><i class="fas fa-clock"></i>
-              <%= moment(ad.createdAt).format('YYYY.MM.D.') %><span class="float-right mr-2"><i class="fas fa-money-bill-alt ml-5"></i>
+            <p class="ml-2 lead"><i class="fas fa-clock"></i>
+              <%= moment(ad.createdAt).format('YYYY.MM.D.') %><span class="float-right mr-2"><i class="fas fa-money-bill-alt"></i>
               <%= ad.price === '' ? 'Nincs ár' : ad.price %></span>
             </p>
 
