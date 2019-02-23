@@ -5,7 +5,7 @@
     <form action="/ads/<%= ad._id %>?_method=PUT" method="POST">
 
       <div class="form-row mt-ads">
-        <div class="form-group mx-auto">
+        <div class="form-group col-lg-2 col-8 mx-auto">
           <select class="custom-select" name="ads[mainCategory]">
             <option value="Kínál" selected>Kínál</option>
             <option value="Keres">Keres</option>
@@ -13,31 +13,22 @@
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="form-group mx-auto">
+        <div class="form-group col-sm-6 mx-auto">
           <input class="form-control" type="text" name="ads[title]" value="<%=ad.title%>" maxlength="70" required>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group mx-auto">
-          <input class="form-control" type="text" name="ads[price]" value="<%=ad.price%>">
+        <div class="form-group col-sm-6 mx-auto">
+          <input class="form-control" type="text" name="ads[price]" value="<%=ad.price%>" placeholder="ár">
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group mx-auto">
-          <input class="form-control" type="text" name="ads[city]" value="<%=ad.city%>">
+        <div class="form-group col-sm-6 mx-auto">
+          <input class="form-control" type="text" name="ads[city]" value="<%=ad.city%>" required>
         </div>
-      </div>
 
-      <div class="form-row">
-        <div class="form-group mx-auto">
-          <input class="form-control" type="text" name="ads[phone]" value="<%=ad.phone%>">
+        <div class="form-group col-sm-6 mx-auto">
+          <input class="form-control" type="text" name="ads[phone]" value="<%=ad.phone%>" required>
         </div>
-      </div>
 
-      <div class="form-row">
         <div class="form-group col-md-12 text-center">
           <h5>Kategória:</h5>
           <div class="radios">
@@ -72,7 +63,6 @@
             </div>
           </div>
         </div>
-      </div>
 
       <!-- <div class="form-group col-sm-6 mx-auto">
         <div class="custom-file">
