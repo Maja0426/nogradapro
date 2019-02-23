@@ -21,8 +21,17 @@
             <%= ad.title.length > 45 ? ad.title.substring(0,45)+'...' : ad.title %>
           </h5>
         </a>
-        <a href="/ads/<%= ad._id %>"><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
-            class="card-img" alt="User photo"></a>
+        <div class="ads-image">
+          <a href="/ads/<%= ad._id %>">
+          <div class="image-wrapper">
+          <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
+              class="card-img" alt="User photo">
+              <div class="overlay">
+                <div class="image-icon"><i class="fas fa-eye fa-4x text-dark"></i></div>
+              </div>
+          </div>
+          </a>
+          </div>
         <div class="mt-2 mx-2">
             <a href="/ads/mainCategory/<%= ad.mainCategory %>"><span class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning text-black' : 'badge-black text-warning'%>">#
               <%= ad.mainCategory %></span></a>
