@@ -175,14 +175,15 @@
     </div>
       </div>
     </div>
-    <div class="btn-wrapper col-12 mx-auto text-center">
+    <div class="text-center">
+    <a href="/ads" class="btn btn-dark">Vissza</a>
       <% if(currentUser && ad.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
       <a href="/ads/<%= ad._id %>/edit" class="btn btn-primary">Szerkeszt</a>
       <form class="d-inline-block" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-outline-danger my-2">Törlés!</button>
+        <button class="btn btn-danger my-2">Törlés!</button>
       </form>
       <% } %>
-      <a href="/ads" class="btn btn-dark">Vissza</a>
+      
     </div>
 
     <hr class="mt-5">

@@ -2,12 +2,13 @@
 
 <div class="container-fluid text-center log-bg">
   <div class="wrapper">
-    <form action="/ads/<%= ad._id %>?_method=PUT" method="POST">
+    <form action="/ads/<%= ad._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
       <div class="form-row mt-ads">
         <div class="form-group col-sm-6 mx-auto">
-          <select class="custom-select" name="ads[mainCategory]">
-            <option value="Kínál" selected>Kínál</option>
+          <select class="custom-select font-weight-bold" name="ads[mainCategory]" required>
+            <option value="<%=ad.mainCategory%>" selected><%=ad.mainCategory%></option>
+            <option value="Kínál">Kínál</option>
             <option value="Keres">Keres</option>
           </select>
         </div>
@@ -32,7 +33,8 @@
         <div class="form-group">
           <h6>Kategória:</h6>
           <div class="form-group col-sm-6 mx-auto">
-          <select class="custom-select" name="ads[category]" required>
+          <select class="custom-select font-weight-bold" name="ads[category]">
+            <option value="<%=ad.category%>" selected><%=ad.category%></option>
             <option value="Állás">Állás</option>
             <option value="Ingatlan">Ingatlan</option>
             <option value="Szolgáltatás">Szolgáltatás</option>
@@ -47,15 +49,9 @@
       <div class="form-group col-sm-6 mx-auto">
         <div class="custom-file">
           <label for="image" class="custom-file-label text-left"><i class="fas fa-image"></i> Képfeltöltés </label>
-          <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" >
+          <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" value="<%=ad.image%>">
         </div>
       </div>
-
-      <!-- <div class="form-row">
-        <div class="form-group mx-auto">
-          <input class="form-control" type="text" name="ads[image]" value="<%=ad.image%>">
-        </div>
-      </div> -->
 
       <div class="form-group col-sm-6 mx-auto">
         <textarea rows="5" class="form-control" name="ads[description]" required><%= ad.description %></textarea>

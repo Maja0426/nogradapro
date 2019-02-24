@@ -214,7 +214,27 @@ router.get('/:id/edit', middleware.checkUser, function (req, res) {
 });
 
 // UPDATE PAGE
-router.put('/:id', middleware.checkUser, function (req, res) {
+router.put('/:id', middleware.checkUser, upload.single('image'), function (req, res) {
+  req.body.ads.author = {
+    id: req.user._id,
+    username: req.user.username
+  };
+  if (req.file) {
+    cloudinary.uploader.upload(req.file.path, function (result) {
+      // add cloudinary url for the image to the ads object under image property
+      req.body.ads.image = result.secure_url;
+      Ads.findByIdAndUpdate(req.params.id, req.body.ads, function (err, updatedAd) {
+        if (err) {
+          req.flash('error', 'Valami hiba történt. Próbálja újra.');
+          res.redirect('ads');
+        } else {
+          req.flash('success', 'Az Ön új hirdetése kész!');
+          res.redirect('/ads/' + updatedAd.id);
+        }
+      })
+    });
+  } else {
+    // req.body.ads.image = 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png';
   Ads.findByIdAndUpdate(req.params.id, req.body.ads, function (err, updateAd) {
     if (err) {
       req.flash('error', 'Valami hiba történt. Próbálja újra.');
@@ -224,6 +244,7 @@ router.put('/:id', middleware.checkUser, function (req, res) {
       res.redirect('/ads/' + updateAd.id);
     }
   })
+}
 });
 
 // DELETE PAGE
