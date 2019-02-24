@@ -23,6 +23,10 @@ body {
   min-height: calc(100vh - 60px);
 }
 
+#ads-flow {
+  padding-top: 30px;
+}
+
 .container, .container-fluid {
   margin-top: 25px;
 }
@@ -47,6 +51,7 @@ body {
   border-radius: 0;
   text-shadow: 5px 5px 5px #000;
   color: #e9ecef;
+  margin-bottom: 50px;
 }
 
 .jumbotron.landing {
