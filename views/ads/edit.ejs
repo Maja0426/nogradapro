@@ -5,7 +5,7 @@
     <form action="/ads/<%= ad._id %>?_method=PUT" method="POST">
 
       <div class="form-row mt-ads">
-        <div class="form-group col-lg-2 col-8 mx-auto">
+        <div class="form-group col-sm-6 mx-auto">
           <select class="custom-select" name="ads[mainCategory]">
             <option value="Kínál" selected>Kínál</option>
             <option value="Keres">Keres</option>
@@ -29,47 +29,27 @@
           <input class="form-control" type="text" name="ads[phone]" value="<%=ad.phone%>" required>
         </div>
 
-        <div class="form-group col-md-12 text-center">
-          <h5>Kategória:</h5>
-          <div class="radios">
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio1" value="Állás"
-                required>
-              <label class="custom-control-label" for="inlineRadio1">Állás</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio2" value="Ingatlan">
-              <label class="custom-control-label" for="inlineRadio2">Ingatlan</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio3" value="Szolgáltatás">
-              <label class="custom-control-label" for="inlineRadio3">Szolgáltatás</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio4" value="Műszaki">
-              <label class="custom-control-label" for="inlineRadio4">Műszaki cikk</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio5" value="Oktatás">
-              <label class="custom-control-label" for="inlineRadio5">Oktatás</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio6" value="Jármű">
-              <label class="custom-control-label" for="inlineRadio6">Jármű</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input class="custom-control-input" type="radio" name="ads[category]" id="inlineRadio7" value="Egyéb">
-              <label class="custom-control-label" for="inlineRadio7">Egyéb</label>
-            </div>
-          </div>
+        <div class="form-group">
+          <h6>Kategória:</h6>
+          <div class="form-group col-sm-6 mx-auto">
+          <select class="custom-select" name="ads[category]" required>
+            <option value="Állás">Állás</option>
+            <option value="Ingatlan">Ingatlan</option>
+            <option value="Szolgáltatás">Szolgáltatás</option>
+            <option value="Műszaki">Műszaki cikk</option>
+            <option value="Oktatás">Oktatás</option>
+            <option value="Jármű">Jármű</option>
+            <option value="Egyéb">Egyéb</option>
+          </select>
+        </div>
         </div>
 
-      <!-- <div class="form-group col-sm-6 mx-auto">
+      <div class="form-group col-sm-6 mx-auto">
         <div class="custom-file">
-          <label for="image" class="custom-file-label">Képfeltöltés</label>
+          <label for="image" class="custom-file-label text-left"><i class="fas fa-image"></i> Képfeltöltés </label>
           <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" >
         </div>
-      </div> -->
+      </div>
 
       <!-- <div class="form-row">
         <div class="form-group mx-auto">
@@ -77,7 +57,7 @@
         </div>
       </div> -->
 
-      <div class="form-row">
+      <div class="form-group col-sm-6 mx-auto">
         <textarea rows="5" class="form-control" name="ads[description]" required><%= ad.description %></textarea>
       </div>
       <button class="btn btn-primary my-2">Módosítás</button>
