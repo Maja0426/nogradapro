@@ -96,7 +96,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
   crossorigin="anonymous"></script>
 <script>
-  $(document).on('click', '.navbar-collapse.in', function (e) {
+  $(document).on('click', '.navbar-collapse', function (e) {
     if ($(e.target).is('a') && ($(e.target).attr('class') != 'dropdown-toggle')) {
       $(this).collapse('hide');
     }
