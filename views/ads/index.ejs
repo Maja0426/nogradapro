@@ -18,7 +18,7 @@
       <div class="card ads-card mb-5">
         <div class="card-body p-0">
           <a href="/ads/<%= ad._id %>"><h5 class="card-title font-weight-bold bg-dark text-light text-center p-2 m-0">
-            <%= ad.title.length > 50 ? ad.title.substring(0,50)+'...' : ad.title %>
+            <%= ad.title.length > 50 ? ad.title.substring(0,55)+'...' : ad.title %>
           </h5></a>
           <a href="/ads/<%= ad._id %>"><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
               class="card-img" alt="User photo"></a>
