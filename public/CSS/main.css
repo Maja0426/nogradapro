@@ -23,13 +23,13 @@ body {
   min-height: calc(100vh - 60px);
 }
 
-#ads-flow {
+/* #ads-flow {
   padding-top: 30px;
-}
+} */
 
-.container, .container-fluid {
+/* .container, .container-fluid {
   margin-top: 25px;
-}
+} */
 
 #footer {
   height: 560px;
