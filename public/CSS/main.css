@@ -51,7 +51,6 @@ body {
   border-radius: 0;
   text-shadow: 5px 5px 5px #000;
   color: #e9ecef;
-  margin-bottom: 50px;
 }
 
 .jumbotron.landing {
@@ -155,3 +154,6 @@ body {
   z-index: 10;
 }
 
+.container, .container-fluid {
+  padding-top: 40px;
+}
