@@ -151,9 +151,9 @@
         <img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png' : ad.image %>"
           class="img-fluid rounded" alt="User's picture">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 desc">
         <p class="lead mt-3 mb-4">
-          <%= ad.description %>
+          <%- ad.description %>
         </p>
         <ul class="list-group mb-4">
           <li class="list-group-item" title="Telefonszám"><i class="fas fa-phone"></i><a class="float-right" href="tel:<%= ad.phone %>"> 
