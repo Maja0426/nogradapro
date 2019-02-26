@@ -111,7 +111,7 @@ body {
 
 .log-bg {
   width: 100%;
-  height: calc(100vh - 56px);
+  height: 100%;
   background: #e9ecef;
 }
 
@@ -157,8 +157,3 @@ body {
 .container, .container-fluid {
   padding-top: 20px;
 }
-
- /* .desc, .desc p {
-  font-size: 1.25rem !important;
-  font-weight: 300 !important;
-} */
