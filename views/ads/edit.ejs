@@ -54,7 +54,9 @@
       </div>
 
       <div class="form-group col-sm-6 mx-auto">
-        <textarea rows="5" class="form-control" name="ads[description]" required><%= ad.description %></textarea>
+       
+        <textarea id="summernote" rows="5" class="form-control" name="ads[description]" required><%= ad.description %></textarea>
+       
       </div>
       <button class="btn btn-primary my-2">Módosítás</button>
       <a class="btn btn-md btn-dark" href="/ads/<%= ad._id %>">Vissza</a>
@@ -70,10 +72,10 @@
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
   crossorigin="anonymous"></script>
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@2.9.3/js/froala_editor.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
 <script>
-  $(function () {
-    $('textarea').froalaEditor()
+  $(document).ready(function () {
+    $('#summernote').summernote();
   });
 </script>
 </body>
