@@ -158,7 +158,7 @@ router.get('/new', middleware.isLoggedIn, function (req, res) {
 
 // CREATE NEW ADS
 router.post('/', middleware.isLoggedIn, upload.single('image'), function (req, res) {
-  // req.body.ads.description = req.sanitize(req.body.ads.description);
+  req.body.ads.description = req.sanitize(req.body.ads.description);
   req.body.ads.author = {
     id: req.user._id,
     username: req.user.username
@@ -216,7 +216,7 @@ router.get('/:id/edit', middleware.checkUser, function (req, res) {
 
 // UPDATE PAGE
 router.put('/:id', middleware.checkUser, upload.single('image'), function (req, res) {
-  // req.body.ads.description = req.sanitize(req.body.ads.description);
+  req.body.ads.description = req.sanitize(req.body.ads.description);
   req.body.ads.author = {
     id: req.user._id,
     username: req.user.username
