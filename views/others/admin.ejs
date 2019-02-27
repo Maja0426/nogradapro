@@ -6,23 +6,22 @@
     <div class="col-lg-4 col-sm-6 mb-5">
       <div class="text-center">
         <h5 class="text-center font-weight-bold bg-info text-light p-3">Regisztrált felhasználók:
-          <span class="badge badge-warning">
+          <span class="badge badge-light">
             <%= users.length %></span>
         </h5>
       </div>
       <ul class="list-group">
         <% users.forEach(function(user) { %>
         <li class="list-group-item"><p>
-          <span class="badge <%= user.active ? 'badge-success' : 'badge-dark' %>"><%= user.username %></span></p>
-          <p class="text-uppercase"><b>Reg.:</b>
+          <a href="/user/<%= user._id %>" class="btn btn-block btn-primary"><%= user.username %></a></p>
+          <p class=""><b>REG.:</b>
             <%= moment(user.userCreated).format('YYYY. MMMM D. HH:MM') %>
           </p>
           <p class=""><b>EMAIL: </b>
             <a href="mailto:<%= user.email %>"><%= user.email %></a>
           </p>
-          <div class="d-block">
-            <a href="/user/<%= user._id %>" class="btn btn-sm btn-info d-inline">Hirdetései</a>
-            <form class="d-inline" action="/user/<%= user._id %>?_method=DELETE" method="POST">
+          <div class="">
+            <form class="" action="/user/<%= user._id %>?_method=DELETE" method="POST">
               <button class="btn btn-sm btn-danger">Felhasználó törlése</button>
               <input class="" type="checkbox" class="form-check-input" required>
             </form>
@@ -36,14 +35,14 @@
     <div class="col-lg-8 col-sm-6">
       <div class="text-center">
         <h5 class="font-weight-bold bg-info text-light p-3">Hirdetések:
-          <span class="badge badge-warning">
+          <span class="badge badge-light">
             <%= ads.length %></span>
         </h5>
       </div>
 
       <ul class="list-group">
         <% ads.forEach(function(ad) { %>
-        <li class="list-group-item"><p><span class="badge badge-dark">
+        <li class="list-group-item"><p><span class="badge badge-secondary d-block">
           <%= ad.author.username %></span></p>
           <p class=""><b>FELADÁS:</b>
           <%= moment(ad.createdAt).format('YYYY. MMMM D. HH:MM') %>
@@ -53,11 +52,10 @@
             <%= moment(ad.lastModifiedAt).format('YYYY. MMMM D. HH:MM') %>
           </p>
        <% } %>
-          <p class="text-uppercase"><b>Hirdetés: </b><%= ad.title %>
+          <p class="text-uppercase"><b>Hirdetés: </b><a href="/ads/<%= ad._id %>"><%= ad.title %></a>
           </p>
-          <div class="d-block">
-            <a href="/ads/<%= ad._id %>" class="btn btn-sm btn-info d-inline">Megnézem</a>
-            <form class="d-inline" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
+          <div class="">
+            <form class="" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
             <button class="btn btn-sm btn-danger">Hirdetés törlése</button>
             <input class="ml-2" type="checkbox" class="form-check-input" required>
           </form>
