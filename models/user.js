@@ -17,9 +17,14 @@ var userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  userLastVisit: {
-    type: Date,
-    default: Date.Now
+  userLastVisit: Date,
+  visits: {
+    type: Number,
+    default: 0
+  },
+  active: {
+    type: Boolean,
+    default: false
   },
   resetPasswordToken: String,
   resetPasswordExpires: Date,

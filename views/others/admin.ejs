@@ -1,62 +1,88 @@
 <% include ../partials/header %>
 
-<div class="container-fluid main-content">
+<div class="container-fluid main-content admin-page">
 
   <div class="row mt-5">
-    <div class="col-md-12">
+    <div class="col-lg-4 col-sm-6 mb-5">
       <div class="text-center">
-      <h5 class="text-center font-weight-bold mt-2 bg-dark text-light p-3">Regisztrált felhasználók:
-        <%= users.length %>
-      </h5>
+        <h5 class="text-center font-weight-bold bg-info text-light p-3">Regisztrált felhasználók:
+          <span class="badge badge-warning">
+            <%= users.length %></span>
+        </h5>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <ul class="list-group-flush">
-            <% users.forEach(function(user) { %>
-            <li class="list-group-item"><b>Név:</b>
-              <%= user.username %></b>
-              <form class="float-right ml-3" action="/user/<%= user._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-sm btn-danger">Felhasználó törlése</button>
-                <input class="ml-3" type="checkbox" class="form-check-input" required>
-              </form>
-              <a href="/user/<%= user._id %>" class="btn btn-sm btn-info float-right">Hirdetései</a>
-              <span class="float-right mr-3"><b>Email: </b><%= user.email %></span>
-            </li>
-            <% }) %>
-          </ul>
-        </div>
-      
-      </div>
-
-    </div>
-    <div class="col-md-12 mt-4">
-      <div class="text-center">
-      <h5 class="font-weight-bold bg-dark text-light p-3">Hirdetések:
-        <%= ads.length %>
-      </h5>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <ul class="list-group-flush">
-            <% ads.forEach(function(ad) { %>
-            <li class="list-group-item"><b>
-                <%= ad.author.username %>: </b>
-              <%= ad.title %>
-              <form class="float-right" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-sm btn-danger">Hirdetés törlése</button>
-                <input class="ml-2" type="checkbox" class="form-check-input" required>
-              </form>
-              <a href="/ads/<%= ad._id %>" class="btn btn-sm btn-info float-right mr-3">Megnézem</a>
-            </li>
-            <% }) %>
-          </ul>
-        </div>
-
-      </div>
+      <ul class="list-group">
+        <% users.forEach(function(user) { %>
+        <li class="list-group-item"><p>
+          <span class="badge <%= user.active ? 'badge-success' : 'badge-dark' %>"><%= user.username %></span></p>
+          <p class="text-uppercase"><b>Reg.:</b>
+            <%= moment(user.userCreated).format('YYYY. MMMM D. HH:MM') %>
+          </p>
+          <p class=""><b>EMAIL: </b>
+            <a href="email:<%= user.email %>"><%= user.email %></a>
+          </p>
+          <div class="d-block">
+            <a href="/user/<%= user._id %>" class="btn btn-sm btn-info d-inline">Hirdetései</a>
+            <form class="d-inline" action="/user/<%= user._id %>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Felhasználó törlése</button>
+              <input class="" type="checkbox" class="form-check-input" required>
+            </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
     </div>
 
+
+    <div class="col-lg-8 col-sm-6">
+      <div class="text-center">
+        <h5 class="font-weight-bold bg-info text-light p-3">Hirdetések:
+          <span class="badge badge-warning">
+            <%= ads.length %></span>
+        </h5>
+      </div>
+
+      <ul class="list-group">
+        <% ads.forEach(function(ad) { %>
+        <li class="list-group-item"><p><span class="badge badge-dark">
+          <%= ad.author.username %></span></p>
+          <p class=""><b>FELADÁS:</b>
+          <%= moment(ad.createdAt).format('YYYY. MMMM D. HH:MM') %>
+          </p>
+         <% if (ad.lastModifiedAt !== ad.createdAt) { %>
+          <p class=""><b>MÓDOSÍTVA:</b>
+            <%= moment(ad.lastModifiedAt).format('YYYY. MMMM D. HH:MM') %>
+          </p>
+       <% } %>
+          <p class="text-uppercase"><b>Hirdetés: </b><%= ad.title %>
+          </p>
+          <div class="d-block">
+            <a href="/ads/<%= ad._id %>" class="btn btn-sm btn-info d-inline">Megnézem</a>
+            <form class="d-inline" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-sm btn-danger">Hirdetés törlése</button>
+            <input class="ml-2" type="checkbox" class="form-check-input" required>
+          </form>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+
+    </div>
   </div>
 
 </div>
 
-<% include ../partials/footer %>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+  crossorigin="anonymous"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<script>
+  $('#summernote').summernote({
+    tabsize: 2,
+    height: 150
+  });
+</script> -->
+</body>
+</header>

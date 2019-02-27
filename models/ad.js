@@ -14,10 +14,7 @@ var adsSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  lastModifiedAt: {
-    type: Date,
-    default: Date.now
-  },
+  lastModifiedAt: Date,
   author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
