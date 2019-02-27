@@ -18,7 +18,7 @@
             <%= moment(user.userCreated).format('YYYY. MMMM D. HH:MM') %>
           </p>
           <p class=""><b>EMAIL: </b>
-            <a href="email:<%= user.email %>"><%= user.email %></a>
+            <a href="mailto:<%= user.email %>"><%= user.email %></a>
           </p>
           <div class="d-block">
             <a href="/user/<%= user._id %>" class="btn btn-sm btn-info d-inline">Hirdetései</a>
