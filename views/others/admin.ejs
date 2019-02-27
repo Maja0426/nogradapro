@@ -12,13 +12,16 @@
       </div>
       <ul class="list-group">
         <% users.forEach(function(user) { %>
-        <li class="list-group-item"><p>
-          <a href="/user/<%= user._id %>" class="btn btn-block btn-primary"><%= user.username %></a></p>
+        <li class="list-group-item">
+          <p>
+            <a href="/user/<%= user._id %>" class="btn btn-block btn-primary">
+              <%= user.username %></a></p>
           <p class=""><b>REG.:</b>
             <%= moment(user.userCreated).format('YYYY. MMMM D. HH:MM') %>
           </p>
           <p class=""><b>EMAIL: </b>
-            <a href="mailto:<%= user.email %>"><%= user.email %></a>
+            <a href="mailto:<%= user.email %>">
+              <%= user.email %></a>
           </p>
           <div class="">
             <form class="" action="/user/<%= user._id %>?_method=DELETE" method="POST">
@@ -40,7 +43,32 @@
         </h5>
       </div>
 
-      <ul class="list-group">
+      <% ads.forEach(function(ad) { %>
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-lg-3">
+            <img src="<%= ad.image %>" class="card-img" alt="Ad's">
+             <div class="text-center my-2">
+            <form class="" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-block btn-dark">Hirdetés törlése</button>
+            <input class="ml-2" type="checkbox" class="form-check-input" required>
+          </form>
+          </div>
+          </div>
+          <div class="col-lg-9">
+            <div class="card-body">
+              <h5 class="card-title"><%= ad.author.username %></h5>
+              <p class="card-text"><b>Hirdetés: </b><a href="/ads/<%= ad._id %>"><%= ad.title %></a>
+          </p>
+              <span class="card-text"><small class="text-muted"><i class="fas fa-clock"></i> Feladva: <%= moment(ad.createdAt).format('YYYY. MMMM D. HH:MM') %></small></span><br>
+              <span class="card-text"><small class="text-muted"><i class="fas fa-stopwatch"></i> Módosítva: <%= moment(ad.lastModifiedAt).format('YYYY. MMMM D. HH:MM') %></small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+
+      <!-- <ul class="list-group">
         <% ads.forEach(function(ad) { %>
         <li class="list-group-item"><p><span class="badge badge-secondary d-block">
           <%= ad.author.username %></span></p>
@@ -54,6 +82,9 @@
        <% } %>
           <p class="text-uppercase"><b>Hirdetés: </b><a href="/ads/<%= ad._id %>"><%= ad.title %></a>
           </p>
+            <div class="card-image float-right">
+              <img src="<%=ad.image%>" class="img-fluid" style="width: 150px" alt="">
+          </div>
           <div class="">
             <form class="" action="/ads/<%= ad._id %>?_method=DELETE" method="POST">
             <button class="btn btn-sm btn-danger">Hirdetés törlése</button>
@@ -61,8 +92,11 @@
           </form>
           </div>
         </li>
+        <div class="col-lg-3">
+          
+        </div>
         <% }) %>
-      </ul>
+      </ul> -->
 
     </div>
   </div>
