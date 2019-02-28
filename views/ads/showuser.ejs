@@ -4,7 +4,7 @@
 
 <hr class="my-4">
 <h2 class="text-center">
-  <b class="text-primary">
+<b class="text-primary">
       <%= user.username %></b> hirdetései:
 </h2>
 <p class="lead text-center"> <%= ads.length %> db.</p>
@@ -49,9 +49,9 @@
 <div class="text-center mt-3">
   <% if(currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
   <form action="/user/<%= user._id %>?_method=DELETE" method="POST">
-    <button class="btn btn-lg btn-danger">Felhasználói fiók törlése</button>
+<button class="btn btn-lg btn-danger">Fiók törlése</button>
 <div class="form-group mt-3 mb-3">
-  <input type="checkbox" class="form-check-input" id="check1" required>Meggondoltam, törölöm!
+  <input type="checkbox" class="form-check-input" id="check1" required>Biztos vagyok benne!
 </div>
   </form>
   <% } %>
