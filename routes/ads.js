@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
    var noMatch = null;
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-    Ads.find({title: regex}).skip((perPage*pageNumber)-perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.find({title: regex}).sort({createdAt:-1}).skip((perPage*pageNumber)-perPage).limit(perPage).exec(function (err, allAds) {
       Ads.countDocuments({title: regex}).exec(function(err, count) {
         if (err) {
           console.log(err);
@@ -56,7 +56,7 @@ router.get('/', function (req, res) {
       })
     })
   } else {
-    Ads.find({}).skip((perPage*pageNumber)-perPage).limit(perPage).exec(function (err, allAds) {
+    Ads.find({}).sort({createdAt:-1}).skip((perPage*pageNumber)-perPage).limit(perPage).exec(function (err, allAds) {
       Ads.countDocuments().exec(function(err, count) {
         if (err) {
           console.log(err);
@@ -81,7 +81,7 @@ router.get('/mainCategory/:id', function(req, res) {
   var pageQuery = parseInt(req.query.page);
   var pageNumber = pageQuery ? pageQuery : 1;
   var noMatch = null;
-  Ads.find({mainCategory: req.params.id}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+  Ads.find({mainCategory: req.params.id}).sort({createdAt:-1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
     Ads.countDocuments().exec(function (err, count) {
       if (err) {
         console.log(err);
@@ -107,7 +107,7 @@ router.get('/category/:id', function (req, res) {
   var noMatch = null;
   Ads.find({
     category: req.params.id
-  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+  }).sort({createdAt:-1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
     Ads.countDocuments().exec(function (err, count) {
       if (err) {
         console.log(err);
@@ -133,7 +133,7 @@ router.get('/city/:id', function (req, res) {
   var noMatch = null;
   Ads.find({
     city: req.params.id
-  }).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
+  }).sort({createdAt:-1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
     Ads.countDocuments().exec(function (err, count) {
       if (err) {
         console.log(err);
@@ -194,7 +194,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function (req, r
 // SHOW PAGE - SHOW THE SELECTED AD
 router.get('/:id', function (req, res) {
   Ads.findById(req.params.id, function (err, foundAd) {
-    if (err) {
+    if (err || !foundAd) {
       req.flash('error', 'Valami hiba történt. Próbálja újra.');
       res.redirect('/ads');
     } else {
