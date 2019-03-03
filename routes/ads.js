@@ -82,13 +82,15 @@ router.get('/mainCategory/:id', function(req, res) {
   var pageNumber = pageQuery ? pageQuery : 1;
   var noMatch = null;
   Ads.find({mainCategory: req.params.id}).sort({createdAt:-1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
-    Ads.countDocuments().exec(function (err, count) {
+    Ads.countDocuments({mainCategory: req.params.id}).exec(function (err, count) {
       if (err) {
         console.log(err);
       } else {
-        res.render('ads/index', {
+        res.render('ads/indexbadges', {
           ads: allAds,
           current: pageNumber,
+          category: req.params.id,
+          findRoute: 'mainCategory',
           pages: Math.ceil(count / perPage),
           noMatch: noMatch,
           search: false
@@ -108,13 +110,15 @@ router.get('/category/:id', function (req, res) {
   Ads.find({
     category: req.params.id
   }).sort({createdAt:-1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
-    Ads.countDocuments().exec(function (err, count) {
+    Ads.countDocuments({category: req.params.id}).exec(function (err, count) {
       if (err) {
         console.log(err);
       } else {
-        res.render('ads/index', {
+        res.render('ads/indexbadges', {
           ads: allAds,
           current: pageNumber,
+          category: req.params.id,
+          findRoute: 'category',
           pages: Math.ceil(count / perPage),
           noMatch: noMatch,
           search: false
@@ -134,13 +138,15 @@ router.get('/city/:id', function (req, res) {
   Ads.find({
     city: req.params.id
   }).sort({createdAt:-1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allAds) {
-    Ads.countDocuments().exec(function (err, count) {
+    Ads.countDocuments({city: req.params.id}).exec(function (err, count) {
       if (err) {
         console.log(err);
       } else {
-        res.render('ads/index', {
+        res.render('ads/indexbadges', {
           ads: allAds,
           current: pageNumber,
+          category: req.params.id,
+          findRoute: 'city',
           pages: Math.ceil(count / perPage),
           noMatch: noMatch,
           search: false
