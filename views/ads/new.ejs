@@ -54,7 +54,7 @@
       </div>
 
       <div class="form-group col-sm-6 mx-auto">
-      <textarea id="" rows="5" class="form-control" placeholder="Hirdetés szövege..." name="ads[description]" required></textarea>
+      <textarea id="summernote" rows="4" class="form-control" placeholder="Hirdetés szövege..." name="ads[description]" required></textarea>
 
         </div>
       <button class="btn btn-primary">Hirdetés feladása</button>
@@ -71,6 +71,13 @@
   crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
   crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<script src="/js/summernote-hu-HU.js"></script>
+<script>
+  $('#summernote').summernote({
+    height: 200,
+    lang: 'hu-HU'
+  });
+</script>
 </body>
 </header>
