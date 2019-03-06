@@ -79,6 +79,10 @@ div.ads-item {
   background: #000;
 }
 
+div.ads-bg {
+  color: #000;
+}
+
 div.ads-item i {
   position: absolute;
   top: 50%;
