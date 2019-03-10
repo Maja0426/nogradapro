@@ -11,35 +11,42 @@
   <h1 class="display-3">Nógrád Apró</h1>
   <p class="lead">Mert hirdetni egyszerűen is lehet.</p>
   <p class="lead">
-<a class="btn btn-primary btn-lg" id="ads-flow" href="/help" role="button">Segítség</a>
+    <a class="btn btn-primary btn-lg" id="ads-flow" href="/help" role="button">Segítség</a>
   </p>
 </div>
 
 <div class="container-fluid main-content">
 
-<div class="row">
+  <div class="row">
 
     <% ads.forEach(function(ad) { %>
     <div class="col-xl-3 col-lg-4 col-sm-6">
       <div class="card ads-card mb-5">
         <div class="card-body p-0">
-          <a href="/ads/<%= ad._id %>"><h5 class="card-title font-weight-bold bg-dark text-light text-center p-2 m-0">
-            <%= ad.title.length > 50 ? ad.title.substring(0,55)+'...' : ad.title %>
-          </h5></a>
-          <a href="/ads/<%= ad._id %>"><div class="ads-item ads-bg">
-            <i class="fas fa-eye fa-4x"></i><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1551468453/BgyBlog/noimage.jpg' : ad.image %>"
-              class="card-img" alt="User photo"></div></a>
+          <a href="/ads/<%= ad._id %>">
+            <h5 class="card-title font-weight-bold bg-dark text-light text-center p-2 m-0">
+              <%= ad.title.length > 50 ? ad.title.substring(0,55)+'...' : ad.title %>
+            </h5>
+          </a>
+          <a href="/ads/<%= ad._id %>">
+            <div class="ads-item ads-bg">
+              <i class="fas fa-eye fa-4x"></i><img src="<%= ad.image === '' ? 'https://res.cloudinary.com/maja0426/image/upload/v1551468453/BgyBlog/noimage.jpg' : ad.image %>"
+                class="card-img" alt="User photo"></div>
+          </a>
           <div class="mt-2 mx-2">
-            <a href="/ads/mainCategory/<%= ad.mainCategory %>"><span class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning' : 'badge-dark text-warning'%>">#<%= ad.mainCategory %></span></a>
-              <a href="/ads/category/<%= ad.category %>"><span class="badge badge-dark">#<%= ad.category %></span></a>
-            <a href="/ads/city/<%= ad.city %>"><span class="badge badge-primary">#<%= ad.city %></span></a>
+            <a href="/ads/mainCategory/<%= ad.mainCategory %>"><span class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning' : 'badge-dark text-warning'%>">#
+                <%= ad.mainCategory %></span></a>
+            <a href="/ads/category/<%= ad.category %>"><span class="badge badge-dark">#
+                <%= ad.category %></span></a>
+            <a href="/ads/city/<%= ad.city %>"><span class="badge badge-primary">#
+                <%= ad.city %></span></a>
           </div>
         </div>
         <div class="row">
           <div class="col-12 py-0">
-          <p class="ml-2 mt-2"><i class="fas fa-calendar"></i>
+            <p class="ml-2 mt-2"><i class="fas fa-calendar"></i>
               <%= moment(ad.createdAt).fromNow() %><br><span class=""><i class="fas fa-money-bill-alt"></i>
-              <%= ad.price === '' ? 'Nincs ár' : ad.price %><small> Ft.</small></span>
+                <%= ad.price === '' ? 'Nincs ár' : ad.price %><small> Ft.</small></span>
             </p>
           </div>
         </div>
@@ -101,14 +108,16 @@
     </ul>
     <% } %>
   </div>
-  <div class="text-center mt-5">
+  <div class="row">
+    <div class="col-12 text-center mt-5">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- index-page ad-banner -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5631469285390271" data-ad-slot="7864110947"
-  data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <!-- index-page ad-banner -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5631469285390271" data-ad-slot="7864110947"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
   </div>
 </div>
 
