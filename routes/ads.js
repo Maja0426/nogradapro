@@ -184,7 +184,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function (req, r
     })
   });
   } else {
-    req.body.ads.image = 'https://res.cloudinary.com/maja0426/image/upload/v1550587836/Aprohirdetes/NoImageFound.png';
+    req.body.ads.image = 'https://res.cloudinary.com/maja0426/image/upload/v1552336982/Aprohirdetes/no-image-icon-11.png';
     Ads.create(req.body.ads, function (err, createdAds) {
       if (err) {
         req.flash('error', 'Valami hiba történt. Próbálja újra.');
