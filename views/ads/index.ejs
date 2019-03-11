@@ -7,17 +7,25 @@
     enable_page_level_ads: true
   });
 </script>
-<div class="jumbotron index">
+<!-- <div class="jumbotron index">
   <h1 class="display-3">Nógrád Apró</h1>
   <p class="lead">Mert hirdetni egyszerűen is lehet.</p>
   <p class="lead">
     <a class="btn btn-primary btn-lg" id="ads-flow" href="/help" role="button">Segítség</a>
   </p>
-</div>
+</div> -->
 
 <div class="container-fluid main-content">
 
   <div class="row">
+    <div class="col-12 text-center mt-5">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5631469285390271" data-ad-slot="7864110947"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
     <% ads.forEach(function(ad) { %>
     <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -108,16 +116,6 @@
     </ul>
     <% } %>
   </div>
-  <!-- <div class="row">
-    <div class="col-12 text-center mt-5">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5631469285390271" data-ad-slot="7864110947"
-      data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-  </div> -->
 </div>
 
 <% include ../partials/footer %>
