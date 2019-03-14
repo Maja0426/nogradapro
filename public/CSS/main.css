@@ -57,7 +57,7 @@ body {
 .jumbotron.landing {
   margin: 0;
   padding: 0;
-  background: url('../images/napro7.jpeg') no-repeat center;
+  background: url('https://res.cloudinary.com/maja0426/image/upload/v1552595527/Aprohirdetes/napro7.jpg') no-repeat center;
   color: #000;
   /* text-shadow: 5px 5px 5px #000; */
   border-radius: 0;
