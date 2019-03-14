@@ -38,7 +38,7 @@ router.post('/register', function (req, res) {
   if (req.body.password === req.body.samePassword) {
   var newUser = new User({
     username: req.body.username,
-    email: req.body.email,
+    email: req.body.email
   });
   if (req.body.username === 'Admin') {
     newUser.isAdmin = true;

@@ -57,11 +57,18 @@ body {
 .jumbotron.landing {
   margin: 0;
   padding: 0;
-  background: url('https://res.cloudinary.com/maja0426/image/upload/v1550879068/Aprohirdetes/Flat-Mountains.svg') no-repeat 70% center/cover;
-  color: #e9ecef;
-  text-shadow: 5px 5px 5px #000;
+  background: url('../images/napro7.jpeg') no-repeat center;
+  color: #000;
+  /* text-shadow: 5px 5px 5px #000; */
   border-radius: 0;
   height: 100vh; 
+}
+
+.bottom-btn a {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 30px;
 }
 
 .jumbotron.landing .btn {
