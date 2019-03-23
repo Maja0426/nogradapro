@@ -87,6 +87,18 @@
 
 
 <div id="fb-root"></div>
+
+<script>
+  window.addEventListener('load', function () {
+    var allimages = document.getElementsByTagName('img');
+    for (var i = 0; i < allimages.length; i++) {
+      if (allimages[i].getAttribute('data-src')) {
+        allimages[i].setAttribute('src', allimages[i].getAttribute('data-src'));
+      }
+    }
+  }, false)
+</script>
+
 <script async defer src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v3.2&appId=701536770240682&autoLogAppEvents=1"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
