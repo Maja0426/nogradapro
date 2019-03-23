@@ -40,7 +40,7 @@ body {
 .jumbotron.index {
   position: relative;
   margin-top: 2%;
-  background: url('https://res.cloudinary.com/maja0426/image/upload/v1552598849/Aprohirdetes/ezgif.com-gif-maker.webp') repeat-x right;
+  background: url('../images/Rainbow-Vortex.svg') no-repeat center/cover;
   border-radius: 0;
   color: #000;
 }
@@ -48,18 +48,27 @@ body {
 .jumbotron.landing {
   margin: 0;
   padding: 0;
-  background: url('https://res.cloudinary.com/maja0426/image/upload/v1552598849/Aprohirdetes/ezgif.com-gif-maker.webp') repeat center;
+  background: url('../images/Flat-Mountains.svg') no-repeat center/cover;
   color: #000;
   /* text-shadow: 5px 5px 5px #000; */
   border-radius: 0;
   height: 100vh; 
 }
 
-.bottom-btn a {
+/* .bottom-btn a {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   bottom: 30px;
+} */
+
+.jumbotron.index h1 {
+  font-weight: bolder;
+  text-shadow: 5px 5px 5px #000;
+}
+
+.jumbotron.landing h1 {
+  font-weight: bolder;
 }
 
 .jumbotron.landing .btn {
