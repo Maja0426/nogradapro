@@ -8,6 +8,7 @@ var flash = require('connect-flash');
 var sslRedirect = require('heroku-ssl-redirect');
 var expressSanitizer = require("express-sanitizer");
 var middleware = require('./middleware');
+var sm = require('sitemap');
 var app = express();
 
 var adsRoutes = require('./routes/ads');
@@ -27,6 +28,24 @@ mongoose.set('useCreateIndex', true);
 
 app.set('view engine', 'ejs');
 app.use(flash());
+
+var sitemap = sm.createSitemap({
+    hostname: 'http://example.com',
+    cacheTime: 600000,        // 600 sec - cache purge period
+    urls: [
+      { url: '/ads/', changefreq: 'daily', priority: 0.3 }
+    ]
+  });
+
+app.get('/sitemap.xml', function (req, res) {
+  sitemap.toXML(function (err, xml) {
+    if (err) {
+      return res.status(500).end();
+    }
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
+  });
+});
 
 // PASSPORT CONFIG
 app.use(require('express-session')({
