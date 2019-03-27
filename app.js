@@ -30,7 +30,7 @@ app.set('view engine', 'ejs');
 app.use(flash());
 
 var sitemap = sm.createSitemap({
-    hostname: 'http://example.com',
+    hostname: 'https://nogradapro.com',
     cacheTime: 600000,        // 600 sec - cache purge period
     urls: [
       { url: '/ads/', changefreq: 'daily', priority: 0.3 }
