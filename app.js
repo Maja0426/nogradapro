@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var flash = require('connect-flash');
-var sslRedirect = require('heroku-ssl-redirect');
+var sslRedirect = require('heroku-ssl-redirect'); // SSL Redirect, must have heroku
 var expressSanitizer = require("express-sanitizer");
 var middleware = require('./middleware');
 var sm = require('sitemap');
@@ -29,6 +29,8 @@ mongoose.set('useCreateIndex', true);
 app.set('view engine', 'ejs');
 app.use(flash());
 
+
+// SITEMAP GENERATOR (ADD sitemap.xml to google console)
 var sitemap = sm.createSitemap({
     hostname: 'https://nogradapro.com',
     cacheTime: 600000,        // 600 sec - cache purge period
@@ -62,14 +64,14 @@ passport.deserializeUser(User.deserializeUser());
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(sslRedirect());
+app.use(sslRedirect()); // Redirect Heroku SSl. MUST HAVE to HEROKU!!
 app.use(expressSanitizer());
 
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.error = req.flash('error');
   res.locals.success = req.flash('success');
-  res.locals.pageUrl = 'https://' + req.get('host') + req.originalUrl;
+  res.locals.pageUrl = 'https://' + req.get('host') + req.originalUrl; // SHOW actual page's URL
   next();
 });
 
