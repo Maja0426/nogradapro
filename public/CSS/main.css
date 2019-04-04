@@ -8,7 +8,7 @@ body {
   padding-bottom: 10px;
 }
 
-.container {
+.container.show-page {
   overflow-x: hidden;
 }
 
