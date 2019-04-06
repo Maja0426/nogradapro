@@ -85,7 +85,25 @@
 </div>
 </footer>
 
-
+<script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+<script>
+var observer = lozad('.lozad', {
+threshold: 0.1,
+load: function(el) {
+el.src = el.getAttribute("data-src");
+el.onload = function() {
+toastr["success"](el.localName.toUpperCase() + " " + el.getAttribute("data-index") + " lazy loaded.")
+}
+}
+})
+// Picture observer
+// with default `load` method
+var pictureObserver = lozad('.lozad-picture', {
+threshold: 0.1
+})
+observer.observe()
+pictureObserver.observe()
+</script>
 <script>
   window.twttr = (function (d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
@@ -107,7 +125,7 @@
 
 <div id="fb-root"></div>
 
-<script>
+<!-- <script>
   window.addEventListener('load', function () {
     var allimages = document.getElementsByTagName('img');
     for (var i = 0; i < allimages.length; i++) {
@@ -116,7 +134,7 @@
       }
     }
   }, false)
-</script>
+</script> -->
 
 <script async defer src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v3.2&appId=701536770240682&autoLogAppEvents=1"></script>
 
