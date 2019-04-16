@@ -44,7 +44,7 @@ body {
 .jumbotron.index {
   position: relative;
   margin-top: 2%;
-  background: url('../images/Rainbow-Vortex.svg') no-repeat center/cover;
+  background: url('../images/blue.png') center;
   border-radius: 0;
   color: #000;
 }
@@ -52,7 +52,7 @@ body {
 .jumbotron.landing {
   margin: 0;
   padding: 0;
-  background: url('../images/Flat-Mountains.svg') no-repeat center/cover;
+  background: url('../images/Wintery-Sunburst.svg') no-repeat center/cover;
   color: #000;
   /* text-shadow: 5px 5px 5px #000; */
   border-radius: 0;
