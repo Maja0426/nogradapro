@@ -8,6 +8,14 @@ body {
   padding-bottom: 10px;
 }
 
+body#prize {
+  min-width: 100vh;
+}
+
+.bg-light-dark {
+  background-color: #1e2227;
+}
+
 .container.show-page {
   overflow-x: hidden;
 }
