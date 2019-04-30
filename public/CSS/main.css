@@ -9,7 +9,7 @@ body {
 }
 
 body#prize {
-  min-width: 100vh;
+  min-height: 100vh;
 }
 
 .bg-light-dark {
