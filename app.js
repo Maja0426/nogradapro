@@ -101,6 +101,12 @@ app.get('/help', function(req, res) {
   res.render('others/help');
 });
 
+app.get('/prize', function(req, res) {
+  res.render('others/prize');
+});
+
+
+
 app.get('/admin', middleware.checkAdmin, middleware.checkAllAds, middleware.checkAllUser, function (req, res) {
   res.render('others/admin');
 });
