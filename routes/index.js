@@ -100,11 +100,11 @@ router.post('/forgot', function (req, res, next) {
     },
     function (token, user, done) {
       var smtpTransport = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        service: 'Gmail',
+        host: "smtp.mailtrap.io",
+        port: 2525,
         auth: {
-          user: 'develop.tmsmajoros@gmail.com',
-          pass: "Tmsmajoros1977"
+          user: "17702515d69be7",
+            pass: "e3f240da68a77c"
         },
         tls: {
           rejectUnauthorized: false
@@ -180,12 +180,12 @@ router.post('/reset/:token', function (req, res) {
     },
     function (user, done) {
       var smtpTransport = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        service: 'Gmail',
-        auth: {
-          user: 'develop.tmsmajoros@gmail.com',
-          pass: "Tmsmajoros1977"
-        },
+        host: "smtp.mailtrap.io",
+          port: 2525,
+          auth: {
+            user: "17702515d69be7",
+            pass: "e3f240da68a77c"
+          },
         tls: {
           rejectUnauthorized: false
         }
