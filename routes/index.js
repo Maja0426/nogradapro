@@ -49,7 +49,33 @@ router.post('/register', function (req, res) {
       console.log(err.message);
       res.redirect('/register');
     } else {
-    passport.authenticate('local')(req, res, function () {
+      var smtpTransport = nodemailer.createTransport({
+        host: "mail.nethely.hu",
+        port: 465,
+        secure: true,
+        auth: {
+          user: "nogradapro@smartbeeweb.hu",
+          pass: "Zsombor2104"
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      });
+      // send mail with defined transport object
+      var mailOptions = {
+        to: 'develop.tmsmajoros@google.com',
+        from: smtpTransport.host,
+        subject: 'Új regisztráció a Nógrád Aprón!',
+        text: 'Az oldalon új regisztráció történt.\n\n' + 'Felhasználónév: ' + regUser.username + '\n\n' +
+          'Email cím: ' + regUser.email + '.'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        if (err) {
+          return console.log(error);
+        }
+        console.log('Újabb regisztráció!');
+      });
+      passport.authenticate('local')(req, res, function () {
       req.flash('success', 'Üdvözlet a Nógrád Aprón ' + regUser.username + '.');
       res.redirect('/ads');
     });
@@ -196,7 +222,7 @@ router.post('/reset/:token', function (req, res) {
         to: user.email,
         from: 'nogradapro@smartbeeweb.hu',
         subject: 'Nógrád Apró jelszóváltoztatás',
-        text: 'Szia!,\n\n' +
+        text: 'Szia,\n\n' +
           'Ez egy megerősítő levél arról, hogy a(z) ' + user.email + ' emailcímhez tartozó jelszavad megváltoztatásra került.\n'
       };
       smtpTransport.sendMail(mailOptions, function (err) {
