@@ -100,11 +100,12 @@ router.post('/forgot', function (req, res, next) {
     },
     function (token, user, done) {
       var smtpTransport = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
-        auth: {
-          user: "17702515d69be7",
-            pass: "e3f240da68a77c"
+        host: "mail.nethely.hu",
+          port: 465,
+          secure: true,
+          auth: {
+            user: "nogradapro@smartbeeweb.hu",
+            pass: "Zsombor2104"
         },
         tls: {
           rejectUnauthorized: false
@@ -112,7 +113,7 @@ router.post('/forgot', function (req, res, next) {
       });
       var mailOptions = {
         to: user.email,
-        from: 'develop.tmsmajoros@gmail.com',
+        from: 'nogradapro@smartbeeweb.hu',
         subject: 'Nógrád Apró jelszóvisszaállítás',
         text: 'Azért kaptad ezt a levelet mert a Nógrád Apró oldalon jelezted, hogy elfelejtetted a felhasználói jelszavad.\n\n' +
           'Lentebb látható a megadott emailcímhez tartozó jelszócsere link. Az alábbi linkre kattintva egy órán belül látogasd meg az oldalt és add meg az új jelszavad:\n\n' +
@@ -180,19 +181,20 @@ router.post('/reset/:token', function (req, res) {
     },
     function (user, done) {
       var smtpTransport = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-          port: 2525,
+        host: "mail.nethely.hu",
+          port: 465,
+          secure: true,
           auth: {
-            user: "17702515d69be7",
-            pass: "e3f240da68a77c"
-          },
+            user: "nogradapro@smartbeeweb.hu",
+            pass: "Zsombor2104"
+        },
         tls: {
           rejectUnauthorized: false
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'tmsmajoros@mail.com',
+        from: 'nogradapro@smartbeeweb.hu',
         subject: 'Nógrád Apró jelszóváltoztatás',
         text: 'Szia!,\n\n' +
           'Ez egy megerősítő levél arról, hogy a(z) ' + user.email + ' emailcímhez tartozó jelszavad megváltoztatásra került.\n'
