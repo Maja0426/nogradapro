@@ -7,7 +7,7 @@ var nodemailer = require('nodemailer');
 var crypto = require('crypto');
 
 router.get('/', function (req, res) {
-  res.render('landing');
+  res.redirect('ads');
 });
 
 
