@@ -6,10 +6,13 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var flash = require('connect-flash');
 var sslRedirect = require('heroku-ssl-redirect'); // SSL Redirect, must have heroku
-var expressSanitizer = require("express-sanitizer");
+var expressSanitizer = require('express-sanitizer');
 var middleware = require('./middleware');
 var sm = require('sitemap');
+const dotenv = require('dotenv');
 var app = express();
+
+dotenv.config({ path: './.env' });
 
 var adsRoutes = require('./routes/ads');
 var indexRoutes = require('./routes/index');
@@ -20,27 +23,32 @@ var PORT = process.env.PORT || 3000;
 
 app.locals.moment = require('moment');
 
-mongoose.connect('mongodb://tmajoros:Tmsmajoros1977@ds343985.mlab.com:43985/nogradapro-01', {
-  useNewUrlParser: true
-});
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
+
+// Connect to Database
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log(`\x1b[34mMongoDB connection successful!\x1b[0m\n`));
 
 app.set('view engine', 'ejs');
 app.use(flash());
 
-
 // SITEMAP GENERATOR (ADD sitemap.xml to google console)
 var sitemap = sm.createSitemap({
-    hostname: 'https://nogradapro.com',
-    cacheTime: 600000,        // 600 sec - cache purge period
-    urls: [
-      { url: '/ads/', changefreq: 'daily', priority: 0.3 }
-    ]
-  });
+  hostname: 'https://nogradapro.com',
+  cacheTime: 600000, // 600 sec - cache purge period
+  urls: [{ url: '/ads/', changefreq: 'daily', priority: 0.3 }]
+});
 
-app.get('/sitemap.xml', function (req, res) {
-  sitemap.toXML(function (err, xml) {
+app.get('/sitemap.xml', function(req, res) {
+  sitemap.toXML(function(err, xml) {
     if (err) {
       return res.status(500).end();
     }
@@ -50,11 +58,13 @@ app.get('/sitemap.xml', function (req, res) {
 });
 
 // PASSPORT CONFIG
-app.use(require('express-session')({
-  secret: 'I would like a new job for me',
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  require('express-session')({
+    secret: 'I would like a new job for me',
+    resave: false,
+    saveUninitialized: false
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -62,8 +72,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(__dirname + '/public'));
-app.use(methodOverride("_method"));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(sslRedirect()); // Redirect Heroku SSl. MUST HAVE to HEROKU!!
 app.use(expressSanitizer());
 
@@ -105,21 +115,24 @@ app.get('/prize', function(req, res) {
   res.render('others/prize');
 });
 
-
-
-app.get('/admin', middleware.checkAdmin, middleware.checkAllAds, middleware.checkAllUser, function (req, res) {
-  res.render('others/admin');
-});
+app.get(
+  '/admin',
+  middleware.checkAdmin,
+  middleware.checkAllAds,
+  middleware.checkAllUser,
+  function(req, res) {
+    res.render('others/admin');
+  }
+);
 
 // 404 ERROR PAGE
-app.get('*', function (req, res) {
+app.get('*', function(req, res) {
   res.render('404');
 });
 
-
 // START SERVER SCRIPT
-app.listen(PORT, function () {
-  console.log("======================================================");
+app.listen(PORT, function() {
+  console.log('======================================================');
   console.log(`YOUR LIFE WILL BE CHANGE.. SERVER STARTED ON PORT ${PORT}`);
-  console.log("======================================================");
+  console.log('======================================================');
 });

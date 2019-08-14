@@ -4,7 +4,8 @@
   "description": "Ingyenes aprohirdetes oldal",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "start:dev": "nodemon app.js"
   },
   "author": "Majoros Tamás",
   "license": "MIT",
@@ -13,6 +14,7 @@
     "body-parser": "^1.18.3",
     "cloudinary": "^1.13.2",
     "connect-flash": "^0.1.1",
+    "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-sanitizer": "^1.0.5",

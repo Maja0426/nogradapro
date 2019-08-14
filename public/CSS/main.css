@@ -12,6 +12,12 @@ body#prize {
   min-height: 100vh;
 }
 
+.main-content {
+  width: 1500px;
+  max-width: 90%;
+  margin: auto;
+}
+
 .bg-light-dark {
   background-color: #1e2227;
 }
@@ -28,11 +34,13 @@ body#prize {
   padding: 6px;
 }
 
-.badge-black, .bg-black {
+.badge-black,
+.bg-black {
   background: #000;
 }
 
-.show-page, .main-content {
+.show-page,
+.main-content {
   min-height: calc(100vh - 60px);
 }
 
@@ -42,19 +50,23 @@ body#prize {
 
 .navbar img,
 .ads-card img {
-  transition: .2s ease-out;
+  transition: 0.2s ease-out;
 }
 
 .navbar img:hover {
   transform: scale(1.1);
-} 
+}
 
 .jumbotron.index {
   position: relative;
   margin-top: 2%;
-  background: url('../images/blue.png') center;
+  background: url('../images/science.png') center;
   border-radius: 0;
   color: #000;
+}
+
+.jumbotron.index h2 {
+  text-shadow: 3px 3px 3px #000;
 }
 
 .jumbotron.landing {
@@ -64,7 +76,7 @@ body#prize {
   color: #000;
   /* text-shadow: 5px 5px 5px #000; */
   border-radius: 0;
-  height: 100vh; 
+  height: 100vh;
 }
 
 /* .bottom-btn a {
@@ -77,6 +89,13 @@ body#prize {
 .jumbotron.index h1 {
   font-weight: bolder;
   text-shadow: 5px 5px 5px #000;
+  font-size: 140px;
+}
+
+@media (max-width: 1024px) {
+  .jumbotron.index h1 {
+    font-size: 100px;
+  }
 }
 
 .jumbotron.landing h1 {
@@ -89,7 +108,7 @@ body#prize {
 
 .jumbotron.index a {
   text-shadow: none;
-  }
+}
 
 div.ads-item {
   position: relative;
@@ -114,12 +133,12 @@ div.ads-item i {
 }
 
 div.ads-item:hover img {
-  opacity: .7;
+  opacity: 0.7;
   filter: grayscale(100%);
 }
 
 div.ads-item * {
-  transition: all .35s ease-in-out;
+  transition: all 0.35s ease-in-out;
 }
 
 div.ads-item:hover i {
@@ -134,6 +153,10 @@ div.ads-item:hover i {
   /* box-shadow: 5px 5px 5px #333; */
 }
 
+.ads-card img {
+  max-height: 350px;
+}
+
 .ads-card .card-title {
   height: 65px;
 }
@@ -143,7 +166,7 @@ div.ads-item:hover i {
 }
 
 .card-body {
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .card-body a {
@@ -179,19 +202,19 @@ div.ads-item:hover i {
 }
 
 .btn-face {
-  background: #3B5998;
+  background: #3b5998;
   color: #fff;
 }
 
 .btn-face:hover {
-  background: #293E6A;
+  background: #293e6a;
   color: #fff;
 }
 
 .btn-twitter {
-    background: #1DA1F2;
-    color: #fff;
-    height: 28px;
+  background: #1da1f2;
+  color: #fff;
+  height: 28px;
 }
 
 .btn-twitter:hover {
@@ -207,7 +230,8 @@ div.ads-item:hover i {
   z-index: 10;
 }
 
-.container, .container-fluid {
+.container,
+.container-fluid {
   padding-top: 20px;
 }
 
