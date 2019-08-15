@@ -10,9 +10,9 @@
   <link rel="icon" href="/images/nograd-icon.png">
   <title>Segítség a Nógrád Apró apróhirdetési oldal használatához.</title>
   <style>
-    html {
+    /* html {
     scroll-behavior: smooth;
-  }
+  } */
 
   body {
     padding-top: 46px;
@@ -24,21 +24,37 @@
   }
 
   .jumbotron {
-background: url('https://res.cloudinary.com/maja0426/image/upload/v1550879003/Aprohirdetes/Rainbow-Vortex.svg')
-no-repeat 50% center/cover;
+background: url('../images/Vanishing-Stripes.svg')
+ center;
     border-radius: 0;
 color: #e9ecef;
-text-shadow: 5px 5px 5px #000;
+/* text-shadow: 5px 5px 5px #000; */
 }
 
-  /* nav li a:hover {
-    color: #fff !important;
-    background: #e95420;
-  } */
+  .jumbotron.help h1 {
+  font-weight: bolder;
+  text-shadow: 5px 5px 5px #000;
+  font-size: 100px;
+}
 
 .jumbotron .btn {
 text-shadow: none;
 }
+
+.navbar img {
+  transition: 0.2s ease-out;
+}
+
+.navbar img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .jumbotron.help h1 {
+    font-size: 70px;
+  }
+}
+
 </style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135987526-1"></script>
@@ -98,12 +114,12 @@ text-shadow: none;
     </div>
   </nav>
 
-  <div class="jumbotron">
-    <h1 class="display-2">HELP!! <i class="fas fa-map-signs"></i></h1>
+  <div class="jumbotron help">
+    <h1 class="display-3">SÚGÓ <i class="fas fa-map-signs"></i></h1>
     <p class="lead">Avagy segítség a Nógrád Apró apróhirdetési oldal használatához. Tudnivalók a használatáról,
       működéséről.</p>
-    <p>Kérlek olvasd át alaposan ezt az oldalt. Itt a működéssel kapcsolatos szinte minden kérdésedre választ
-      fogsz kapni.</p>
+    <!-- <p>Kérlek olvasd át alaposan ezt az oldalt. Itt a működéssel kapcsolatos szinte minden kérdésedre választ
+      fogsz kapni.</p> -->
     <p class="lead">
       <a class="btn btn-light btn-lg" href="/ads" role="button">Vissza</a>
     </p>
