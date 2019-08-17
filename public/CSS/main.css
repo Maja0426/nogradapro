@@ -59,13 +59,13 @@ body#prize {
 
 .jumbotron {
   padding: 1rem !important;
+  border-radius: 0 !important;
 }
 
 .jumbotron.index {
   position: relative;
   /* margin-top: 2%; */
   background: url('../images/Vanishing-Stripes.svg') center;
-  border-radius: 0;
   color: #000;
 }
 
@@ -79,7 +79,6 @@ body#prize {
   background: url('../images/Wintery-Sunburst.svg') no-repeat center/cover;
   color: #000;
   /* text-shadow: 5px 5px 5px #000; */
-  border-radius: 0;
   height: 100vh;
 }
 
