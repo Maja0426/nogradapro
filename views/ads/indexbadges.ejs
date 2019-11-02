@@ -10,14 +10,14 @@
 <div class="container-fluid main-content">
   <div class="row">
     <% ads.forEach(function(ad) { %>
-    <div class="col-xl-3 col-lg-4 col-sm-6">
+    <div class="col-xl-2 col-lg-3 col-sm-6">
       <div class="card ads-card mb-5">
         <div class="card-body p-0">
           <a href="/ads/<%= ad._id %>">
             <h5
-              class="card-title font-weight-bold bg-dark text-light text-center p-2 m-0"
+              class="card-title font-weight-bold bg-dark text-light text-center py-2 px-auto m-0"
             >
-              <%= ad.title.length > 50 ? ad.title.substring(0,55)+'...' :
+              <%= ad.title.length > 45 ? ad.title.substring(0,45)+'...' :
               ad.title %>
             </h5>
           </a>
@@ -31,18 +31,18 @@
               />
             </div>
           </a>
-          <div class="mt-2 mx-2">
+          <div class="my-2 mx-2 main-categories">
             <a href="/ads/mainCategory/<%= ad.mainCategory %>"
               ><span
                 class="badge <%= ad.mainCategory === 'Kínál' ? 'badge-warning' : 'badge-dark text-warning'%>"
-                ># <%= ad.mainCategory %></span
+                ><%= ad.mainCategory %></span
               ></a
             >
             <a href="/ads/category/<%= ad.category %>"
-              ><span class="badge badge-dark"># <%= ad.category %></span></a
+              ><span class="badge badge-dark"><%= ad.category %></span></a
             >
             <a href="/ads/city/<%= ad.city %>"
-              ><span class="badge badge-light"># <%= ad.city %></span></a
+              ><span class="badge badge-light"><%= ad.city %></span></a
             >
           </div>
         </div>
@@ -52,7 +52,7 @@
               <i class="fas fa-calendar"></i> <%= moment(ad.createdAt).fromNow()
               %><br /><span class=""
                 ><i class="fas fa-money-bill-alt"></i> <%= ad.price === '' ?
-                'Nincs ár' : ad.price %><small> Ft.</small></span
+                'Nincs ár' : ad.price %> Ft.</span
               >
             </p>
           </div>

@@ -31,7 +31,7 @@ cloudinary.config({
 
 // INDEX PAGE, LIST ALL ADS
 router.get('/', function(req, res) {
-  var perPage = 16;
+  var perPage = 24;
   var pageQuery = parseInt(req.query.page);
   var pageNumber = pageQuery ? pageQuery : 1;
   var noMatch = null;
@@ -85,7 +85,7 @@ router.get('/', function(req, res) {
 
 // BADGES - MAINCATEGORY (BUY OR SELL)
 router.get('/mainCategory/:id', function(req, res) {
-  var perPage = 16;
+  var perPage = 18;
   var pageQuery = parseInt(req.query.page);
   var pageNumber = pageQuery ? pageQuery : 1;
   var noMatch = null;
@@ -117,7 +117,7 @@ router.get('/mainCategory/:id', function(req, res) {
 
 // BADGES - CATEGORY (TYPE)
 router.get('/category/:id', function(req, res) {
-  var perPage = 16;
+  var perPage = 18;
   var pageQuery = parseInt(req.query.page);
   var pageNumber = pageQuery ? pageQuery : 1;
   var noMatch = null;
@@ -151,7 +151,7 @@ router.get('/category/:id', function(req, res) {
 
 // BADGES - CITIES
 router.get('/city/:id', function(req, res) {
-  var perPage = 16;
+  var perPage = 18;
   var pageQuery = parseInt(req.query.page);
   var pageNumber = pageQuery ? pageQuery : 1;
   var noMatch = null;
@@ -208,11 +208,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(
           res.redirect('/ads/' + createdAds.id);
 
           systemMail(
-            `${
-              req.body.ads.author.username
-            } nevű felhasználó új hirdetést adott fel az oldalon.\n\nA hirdetés elérhető a: https://nogradapro.com/ads/${
-              createdAds.id
-            } oldalon.`
+            `${req.body.ads.author.username} nevű felhasználó új hirdetést adott fel az oldalon.\n\nA hirdetés elérhető a: https://nogradapro.com/ads/${createdAds.id} oldalon.`
           );
         }
       });
@@ -228,11 +224,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(
         req.flash('success', 'Az Ön új hirdetése kész!');
         res.redirect('/ads/' + createdAds.id);
         systemMail(
-          `${
-            req.body.ads.author.username
-          } nevű felhasználó új hirdetést adott fel az oldalon.\n\nA hirdetés elérhető a: https://nogradapro.com/ads/${
-            createdAds.id
-          } oldalon.`
+          `${req.body.ads.author.username} nevű felhasználó új hirdetést adott fel az oldalon.\n\nA hirdetés elérhető a: https://nogradapro.com/ads/${createdAds.id} oldalon.`
         );
       }
     });

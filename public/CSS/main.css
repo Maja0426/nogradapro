@@ -13,7 +13,7 @@ body#prize {
 }
 
 .main-content {
-  width: 1500px;
+  width: 1800px;
   max-width: 90%;
   margin: auto;
 }
@@ -58,6 +58,7 @@ body#prize {
 }
 
 .jumbotron {
+  text-align: center;
   padding: 1rem !important;
   border-radius: 0 !important;
 }
@@ -165,15 +166,52 @@ div.ads-item:hover i {
 .card {
   border: none;
   background: #e9ecef;
+  min-width: 180px;
   /* box-shadow: 5px 5px 5px #333; */
 }
 
-.ads-card img {
-  max-height: 350px;
+.card h5 {
+  font-size: 16px;
 }
 
 .ads-card .card-title {
+  display: flex;
   height: 65px;
+}
+
+.card-title {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.ads-card img {
+  height: 180px;
+}
+
+@media (max-width: 500px) {
+  .ads-card img {
+    height: 230px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ads-card img {
+    height: 150px;
+  }
+}
+
+.ads-card .main-categories {
+  height: 45px;
+}
+
+.main-categories .badge {
+  margin-bottom: 5px;
+}
+
+.ads-card p {
+  font-size: 14px;
 }
 
 .ads-card img {
