@@ -166,7 +166,7 @@ div.ads-item:hover i {
 .card {
   border: none;
   background: #e9ecef;
-  min-width: 180px;
+  /* min-width: 180px; */
   /* box-shadow: 5px 5px 5px #333; */
 }
 
@@ -186,8 +186,13 @@ div.ads-item:hover i {
   align-items: center;
 }
 
+/* .ads-card {
+  height: 400px;
+} */
+
 .ads-card img {
-  height: 180px;
+  height: 100% !important;
+  overflow: hidden;
 }
 
 @media (max-width: 500px) {
