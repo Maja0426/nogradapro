@@ -24,9 +24,9 @@ var upload = multer({
 
 var cloudinary = require('cloudinary');
 cloudinary.config({
-  cloud_name: 'maja0426',
-  api_key: '831789779817282',
-  api_secret: 'A8gM9XzEuhRuLSds9Fru_l7lTz0'
+  cloud_name: '',
+  api_key: '',
+  api_secret: ''
 });
 
 // INDEX PAGE, LIST ALL ADS
